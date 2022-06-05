@@ -96,7 +96,7 @@ Caso você use um S3 como *origin server* pode optar por deixar os objetos públ
 ---
 ## EC2
 
-O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um serviço que provê *instâncias* computacionais com vários tipos de otimização:
+O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um serviço que provê *instâncias* computacionais com vários [tipos](https://aws.amazon.com/ec2/instance-types/) de otimização:
 * compute (c e hpc);
   * Alto poder de CPU
 * memory (r, x, High Memory e z1d (alta frequência));
