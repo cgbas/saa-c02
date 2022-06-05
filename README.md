@@ -1,5 +1,18 @@
 ## S3
 
+Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e durabilidade. Possui diversas classes de armazenamento. Possuem classes de armazenamento que no geral se baseiam na frequência de acesso:
+
+* Frequente:
+  * Standard
+    * Mais comum, para objetos com acesso frequente
+* Infrequente:
+  * Standard-IA
+  * Glacier Deep Storage
+    * Restore leva algumas horas
+* Frequência Desconhecida ou que pode alterar
+  * S3 Intelligent-Tiering
+    * Movimenta automaticamente entre classes de acesso baseado na frequência que um arquivo é solicitado
+
 ### Snowball
 
 Serviço: Migration & Tranfer (_Não_ é um serviço de storage)
@@ -35,7 +48,6 @@ Com o transfer acceleration, temos a mesma analogia porém com o S3, pois se tem
 ### RRS
 
 Reduced Replication Storage, 0,01% de perda em comparação ao S3 standard, por ter menos replicação, torna-se um serviço mais barato.
-
 
 ### Hospedando um website
 
