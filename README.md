@@ -18,6 +18,8 @@ Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e 
 **Importante**:
 * Bucket names são globais e, portanto, únicos
 * Em questões que mencionam apenas o S3, sem informar a classe, assumir que a questão fala da classe Standard.
+* Tamanho mínimo de arquivo: 1 byte
+* Tamanho máximo de arquivo: 5TB
 
 ### Snowball
 
