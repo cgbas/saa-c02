@@ -120,3 +120,5 @@ O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um s
   
 E também temos a opção de ativar um Saving Plan, onde um desconto é fornecido mediante uma reserva adiantada da instância por 1 ou 3 anos. O Saving Plan pode ser ativado em instâncias EC2 e Fargate.
 
+Para estimar os custos na AWS, podemos utilizar o [Princing Calculator](https://calculator.aws/#/)
+
