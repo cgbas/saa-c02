@@ -1,6 +1,8 @@
 # Notas de estudo para SAA-C02
 
 Repositório com minhas notas de estudo para a certificação de Solutions Architect - Associate, da Amazon.
+
+---
 ## Armazenamento e Migração de Dados
 ### S3
 
@@ -73,7 +75,7 @@ Garante 99,99% em durabilidade e disponibilidade. **Não** é recomendado para d
 
 **IMPORTANTE**: Em um caso de uso onde ao hospedar um site não é do interesse que as imagens sejam acessadas diretamente, para que seu site seja acessado para isso, é possível remover o acesso público às imagens, servindo-as apenas a URLs assinadas e com data de expiração (signed URLs)
 
-## Cloudfront
+### Cloudfront
 
 O [Cloudfront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) é um serviço para acelerar a distribuição de conteúdo estático (.html, .css, etc.) e dinâmico. O conteúdo é entregue por uma rede global de datacenters, os Edge Locations.
 
@@ -87,7 +89,34 @@ Para entregar com a melhor performance possível, os requests são roteados para
 
 Arquivos servidos pelo Cloudfront são chamados *objetos*. Para utilizar o Cloudfront criamos uma *distribution* que irá receber um nome de domínio após sua criação ou pode ter um domínio customizado também. Nessa distribuição é definida a origem (*origin servers*) e se os requests irão gerar logs. A configuração dessa distribuição também é enviada para todos os Edge Locations.
 
-Por padrão o cache em uma Edge Location tem um prazo de 24h para expiração, podendo ser alterado para um mínimo de 0 segundos e não possui um valor máximo.
+Por padrão o cache em uma Edge Location tem um prazo de 24h para expiração através de cabeçalhos nos arquivos, podendo ser alterado para um mínimo de 0 segundos e não possui um valor máximo.
 
 Caso você use um S3 como *origin server* pode optar por deixar os objetos públicos no bucket ou então mantê-los privados e somente [URLs assinadas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) podem acessá-los.
+
+---
+## EC2
+
+O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um serviço que provê *instâncias* computacionais com vários tipos de otimização:
+* compute;
+* memory;
+* storage;
+* accelerated computing;
+* general purpouse.
+  
+[Valores](https://aws.amazon.com/ec2/pricing/) das instâncias. Vale ressaltar que além dos tipos de otimização, as instâncias podem ser classificadas em:
+* Spot
+  * Até 90% de economia sobre instâncias on-demand
+  * Útil para aplicações sem tanta exigência por ínicio/término exato do processamento
+  * **NÃO** recomendada para aplicações que não podem ser interrompidas
+  * Pode viabilizar aplicações que precisem de custo muito baixo de operacionalização
+  * Útil para momentos pontuais que necessitem de capacidade extra de processamento
+* On-Demand
+  * Cobradas por hora e até por segundo
+  * Recomendadas para cargas de trabalho não preditíveis, porém que não podem ser interrompidas
+* Dedicated Hosts
+  * Recomendada para utilização com licenças de software Server-bound, como por exemplo SQL Server, Windows Server, etc.
+  * Pode ser utilizada para cumprir requisitos de compliance
+  * Contratadas on-Demand (por hora) ou então com um *reservation*, possibilitando até 70% de economia
+  
+E também temos a opção de ativar um Saving Plan, onde um desconto é fornecido mediante uma reserva adiantada da instância por 1 ou 3 anos. O Saving Plan pode ser ativado em instâncias EC2 e Fargate.
 
