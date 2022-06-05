@@ -32,3 +32,7 @@ Com o transfer acceleration, temos a mesma analogia porém com o S3, pois se tem
 **Como habilitar?**
 * Dentro de advance settings no bucket, é possível habilitar/desabilitar o serviço, portanto é algo individual por bucket. Ao habilitar, a URL da bucket é alterada.
 
+### RRS
+
+Reduced Replication Storage, 0,01% de perda em comparação ao S3 standard, por ter menos replicação, torna-se um serviço mais barato.
+
