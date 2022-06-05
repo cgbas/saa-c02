@@ -36,3 +36,10 @@ Com o transfer acceleration, temos a mesma analogia porém com o S3, pois se tem
 
 Reduced Replication Storage, 0,01% de perda em comparação ao S3 standard, por ter menos replicação, torna-se um serviço mais barato.
 
+
+### Hospedando um website
+
+Nos properties, habilitar Static Website Hosting
+* "use this bucket to host a static website"
+* apontar o index document e página de erro
+* ao habilitar, s3 fornece uma url
