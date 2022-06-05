@@ -97,11 +97,15 @@ Caso você use um S3 como *origin server* pode optar por deixar os objetos públ
 ## EC2
 
 O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um serviço que provê *instâncias* computacionais com vários tipos de otimização:
-* compute;
-* memory;
-* storage;
-* accelerated computing;
-* general purpouse.
+* compute (c e hpc);
+  * Alto poder de CPU
+* memory (r, x, High Memory e z1d (alta frequência));
+  * então alto poder de memória
+* storage (i e d);
+  * Alto IO
+* accelerated computing (p, g, f1, vt1, trn (training) e inf (inference))
+  * GPUs
+* general purpouse (mac, t, m e A1)
   
 [Valores](https://aws.amazon.com/ec2/pricing/) das instâncias. Vale ressaltar que além dos tipos de otimização, as instâncias podem ser classificadas em:
 * Spot
@@ -112,13 +116,17 @@ O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um s
   * Útil para momentos pontuais que necessitem de capacidade extra de processamento
 * On-Demand
   * Cobradas por hora e até por segundo
+    * Primeiros 60s são cobrados cheios, subsequentes são segundo a segundo.
   * Recomendadas para cargas de trabalho não preditíveis, porém que não podem ser interrompidas
 * Dedicated Hosts
   * Recomendada para utilização com licenças de software Server-bound, como por exemplo SQL Server, Windows Server, etc.
   * Pode ser utilizada para cumprir requisitos de compliance
   * Contratadas on-Demand (por hora) ou então com um *reservation*, possibilitando até 70% de economia
   
-E também temos a opção de ativar um Saving Plan, onde um desconto é fornecido mediante uma reserva adiantada da instância por 1 ou 3 anos. O Saving Plan pode ser ativado em instâncias EC2 e Fargate.
+E também temos a opção de ativar um **Saving Plan**, onde um desconto é fornecido mediante uma reserva adiantada da instância por 1 ou 3 anos. O Saving Plan pode ser ativado em instâncias EC2 e Fargate.
 
 Para estimar os custos na AWS, podemos utilizar o [Princing Calculator](https://calculator.aws/#/)
+
+### EBS
+
 
