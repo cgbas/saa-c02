@@ -1,4 +1,8 @@
-## S3
+# Notas de estudo para SAA-C02
+
+Repositório com minhas notas de estudo para a certificação de Solutions Architect - Associate, da Amazon.
+## Armazenamento e Migração de Dados
+### S3
 
 Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e durabilidade. Possui diversas classes de armazenamento. Possuem classes de armazenamento que no geral se baseiam na frequência de acesso:
 
@@ -59,7 +63,7 @@ Reduced Replication Storage, 0,01% de perda em comparação ao S3 standard, por 
 
 Garante 99,99% em durabilidade e disponibilidade. **Não** é recomendado para dados críticos e não substituíveis. Útil por exemplo para thumbnails.
 
-### Hospedando um website
+### Hospedando um website com S3
 
 **Em properties**:
 * Habilitar Static Website Hosting
@@ -68,3 +72,22 @@ Garante 99,99% em durabilidade e disponibilidade. **Não** é recomendado para d
 * Ao habilitar, s3 fornece uma url
 
 **IMPORTANTE**: Em um caso de uso onde ao hospedar um site não é do interesse que as imagens sejam acessadas diretamente, para que seu site seja acessado para isso, é possível remover o acesso público às imagens, servindo-as apenas a URLs assinadas e com data de expiração (signed URLs)
+
+## Cloudfront
+
+O [Cloudfront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) é um serviço para acelerar a distribuição de conteúdo estático (.html, .css, etc.) e dinâmico. O conteúdo é entregue por uma rede global de datacenters, os Edge Locations.
+
+Para entregar com a melhor performance possível, os requests são roteados para o Edge Location com a menor latência. Se o Edge Location já possuir o conteúdo, ele é servido imediatamente, do contrário o mesmo é copiado da origem definida e fica em cache no destino, para servir imediatamente novos requests.
+
+**Possíveis origens**:
+* HTTP Servers (ex: web server)
+  * Pode ser um EC2 ou um servidor próprio, conhecido por *custom origin*
+* S3
+* Canal MediaPackage
+
+Arquivos servidos pelo Cloudfront são chamados *objetos*. Para utilizar o Cloudfront criamos uma *distribution* que irá receber um nome de domínio após sua criação ou pode ter um domínio customizado também. Nessa distribuição é definida a origem (*origin servers*) e se os requests irão gerar logs. A configuração dessa distribuição também é enviada para todos os Edge Locations.
+
+Por padrão o cache em uma Edge Location tem um prazo de 24h para expiração, podendo ser alterado para um mínimo de 0 segundos e não possui um valor máximo.
+
+Caso você use um S3 como *origin server* pode optar por deixar os objetos públicos no bucket ou então mantê-los privados e somente [URLs assinadas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) podem acessá-los.
+
