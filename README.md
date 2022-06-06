@@ -16,6 +16,8 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
   - [EC2](#ec2)
     - [EBS](#ebs)
       - [Criando um volume](#criando-um-volume)
+    - [Snapshots](#snapshots)
+    - [Data Lifecycle Manager](#data-lifecycle-manager)
   - [AWS Marketplace](#aws-marketplace)
 
 ---
@@ -165,13 +167,49 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 
 **=> Create Volume**
 
+### Snapshots
+
+Serve como sistema de backup tanto para volumes como para instâncias
+
+**EC2** => Elastic Block Storage => Snapshots
+
+Resource types:
++ Instance
++ Volume
+
+Para restaurar um snapshot, temos duas opções:
++ Criar um novo volume e utilizar o snapshot como base
++ Criar uma AMI e utilizar o snapshot como base
+
+A diferença aqui é que no caso do EBS Volume, não necessariamente a máquina ira subir com as mesmas configurações, o volume pode ser simplesmente um disco a mais, enquanto no segundo caso a instância irá subir utilizando aquele snapshot como imagem base.
+
+
+### Data Lifecycle Manager
+
+O [Data Lifecycle Manager (DLM)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) suporta:
+
++ Snapshots de Volumes EBS
+  + Snapshots sucessivos são incrementais, portando ao remover um, somente os dados únicos daquele snapshots são apagados
++ AMIs baseadas em EBS
+
+O DLM inclui algumas tags automaticamente, para diferenciar snapshots e AMIs criadas de alguma outra maneira, são elas:
+
+* aws:dlm:lifecycle-policy-id
+* aws:dlm:lifecycle-schedule-name
+* aws:dlm:expirationTime
+  * somente para *schedule* com uma  política de retenção baseada em duração
+* dlm:managed
+
+**Cotas**
+
+|Descrição |	Cota|
+| --- | --- |
+|Políticas de Lifecycle por Região|100
+|Tags por recurso|45
+
 ---
 ## AWS Marketplace
 
 O [AWS Marketplace](https://aws.amazon.com/mp/marketplace-service/overview/) é um catálogo digital que permite a contratação de soluções de terceiros em um modelo de utilização pay-per-use. São soluções curadas que no geral permitem implementação de diversos níveis de controle e governança. Há também cenários onde a solução de marketplace consiste em um ambiente pré-configurado e o usuário contratante deve fornecer sua própria licença (ex: Splunk Enterprise).
-
-
-
-
 
 
