@@ -19,6 +19,7 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
     - [Snapshots](#snapshots)
     - [Data Lifecycle Manager](#data-lifecycle-manager)
   - [AWS Marketplace](#aws-marketplace)
+  - [Cloudformation](#cloudformation)
 
 ---
 ## Armazenamento e Migração de Dados
@@ -211,5 +212,9 @@ O DLM inclui algumas tags automaticamente, para diferenciar snapshots e AMIs cri
 ## AWS Marketplace
 
 O [AWS Marketplace](https://aws.amazon.com/mp/marketplace-service/overview/) é um catálogo digital que permite a contratação de soluções de terceiros em um modelo de utilização pay-per-use. São soluções curadas que no geral permitem implementação de diversos níveis de controle e governança. Há também cenários onde a solução de marketplace consiste em um ambiente pré-configurado e o usuário contratante deve fornecer sua própria licença (ex: Splunk Enterprise).
+
+## Cloudformation
+
+O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um serviço de IAC. Permite a criação de infraestrutura através de um template code em formato YAML ou JSON.
 
 
