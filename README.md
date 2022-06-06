@@ -2,6 +2,22 @@
 
 Repositório com minhas notas de estudo para a certificação de Solutions Architect - Associate, da Amazon.
 
+## Índice
+- [Notas de estudo para SAA-C02](#notas-de-estudo-para-saa-c02)
+  - [Índice](#índice)
+  - [Armazenamento e Migração de Dados](#armazenamento-e-migração-de-dados)
+    - [S3](#s3)
+    - [Snowball](#snowball)
+    - [StorageGateway](#storagegateway)
+    - [S3 Transfer Acceleration](#s3-transfer-acceleration)
+    - [RRS](#rrs)
+    - [Hospedando um website com S3](#hospedando-um-website-com-s3)
+    - [Cloudfront](#cloudfront)
+  - [EC2](#ec2)
+    - [EBS](#ebs)
+      - [Criando um volume](#criando-um-volume)
+  - [AWS Marketplace](#aws-marketplace)
+
 ---
 ## Armazenamento e Migração de Dados
 ### S3
@@ -125,7 +141,7 @@ O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um s
   
 E também temos a opção de ativar um **Saving Plan**, onde um desconto é fornecido mediante uma reserva adiantada da instância por 1 ou 3 anos. O Saving Plan pode ser ativado em instâncias EC2 e Fargate.
 
-Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://calculator.aws/#/)
+Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://calculator.aws/#/). Para visualizar todas suas instâncias EC2, utilize o [Global View](https://us-east-1.console.aws.amazon.com/ec2globalview/home?region=us-east-1#)
 
 ### EBS
 
@@ -134,6 +150,27 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 * Volumes SSD são mais recomendados para bancos de dados e volumes de inicialização, workloads transacionais. Dependência em IOPs.
 
 * Volumes HDD são recomendados para workloads com tranferência intensa, como MapReduce ou então processamento de logs. Dependência em MB/s. Ainda em HDD há a opção Cold para dados que uma vez processados são pouco acessados e têm poucas verificações diárias.
+
+#### Criando um volume
+
+**EC2** => Elastic Block Storage => Volumes => Create Volume (...) 
+
+**Informar**: 
++ Type
++ Size
++ AZ
++ Encryption (opcional)
++ Snapshot ID (opcional, apenas se for utilizar um como base))
++ Tags
+
+**=> Create Volume**
+
+---
+## AWS Marketplace
+
+O [AWS Marketplace](https://aws.amazon.com/mp/marketplace-service/overview/) é um catálogo digital que permite a contratação de soluções de terceiros em um modelo de utilização pay-per-use. São soluções curadas que no geral permitem implementação de diversos níveis de controle e governança. Há também cenários onde a solução de marketplace consiste em um ambiente pré-configurado e o usuário contratante deve fornecer sua própria licença (ex: Splunk Enterprise).
+
+
 
 
 
