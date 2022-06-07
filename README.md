@@ -24,6 +24,17 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
     - [EFS](#efs)
   - [AWS Marketplace](#aws-marketplace)
   - [WAF](#waf)
+  - [Bases de Dado AWS](#bases-de-dado-aws)
+    - [Relational e Non-Relational](#relational-e-non-relational)
+    - [DynamoDB](#dynamodb)
+    - [Elasticache](#elasticache)
+    - [Redshift](#redshift)
+    - [Amazon Aurora](#amazon-aurora)
+  - [Aplicações AWS](#aplicações-aws)
+  - [Route53](#route53)
+  - [VPC](#vpc)
+  - [Aplicações AWS](#aplicações-aws-1)
+  - [Serverless Lambda](#serverless-lambda)
   - [Cloudformation](#cloudformation)
 
 ---
@@ -238,6 +249,32 @@ O [AWS Marketplace](https://aws.amazon.com/mp/marketplace-service/overview/) é 
 
 O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfront, ALB (EC2), APIGateway ou APPSync (GraphQL APIS). Trata-se de um firewall de Camada 7 (aplicação), para proteção contra DDoS e conteúdo web malicioso.
 
+---
+## Bases de Dado AWS
+
+### Relational e Non-Relational
+
+### DynamoDB
+### Elasticache
+### Redshift
+### Amazon Aurora
+
+---
+## Aplicações AWS
+
+---
+## Route53
+
+---
+## VPC
+
+---
+## Aplicações AWS
+
+---
+## Serverless Lambda
+
+---
 ## Cloudformation
 
 O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um serviço de IAC. Permite a criação de infraestrutura através de um template code em formato YAML ou JSON.
