@@ -18,7 +18,11 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
       - [Criando um volume](#criando-um-volume)
     - [Snapshots](#snapshots)
     - [Data Lifecycle Manager](#data-lifecycle-manager)
+    - [User Data](#user-data)
+    - [Instance Hibernation](#instance-hibernation)
+    - [Security Groups](#security-groups)
   - [AWS Marketplace](#aws-marketplace)
+  - [WAF](#waf)
   - [Cloudformation](#cloudformation)
 
 ---
@@ -208,10 +212,26 @@ O DLM inclui algumas tags automaticamente, para diferenciar snapshots e AMIs cri
 |Políticas de Lifecycle por Região|100
 |Tags por recurso|45
 
+### User Data
+
+Como [user-data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) é possível fornecer shell-scripts ou então diretivas de cloud-init que serão executadas durante o *launch* da instância. Durante a criação, em advanced details é possível fornecer esse user-data como texto, arquivo ou já em base64. Para alterar o que você configurou em user-data em uma instância já existente, é necessário que a mesma esteja em estado *stopped* e então em *Actions, Instance settings, Edit user data*.
+
+### Instance Hibernation
+
+Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html) desde que isso seja configurado durante a criação. Existem também alguns [pré-requisitos](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html), como por exemplo ter o volume root com encriptação habilitada, não possuir mais de 150gb de RAM e somente suportar instâncias on-demand.
+
+### Security Groups
+
+[Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) são equivalentes a firewalls virtuais de uma instância, permitindo que criemos regras de entrada (inbound) e saída (outbound). SGs são stateful, portanto mesmo que você não tenha uma regra de entrada mas o request foi originado da instância, a mesma irá receber a resposta com sucesso. Caso você não forneça um SG durante a criação da instância, a mesma será adicionada ao SG *default*. É possível associar mais de um SG para uma instância e todos serão avaliados para decidir se algum tipo de tráfego deve ser permitido.
+
 ---
 ## AWS Marketplace
 
 O [AWS Marketplace](https://aws.amazon.com/mp/marketplace-service/overview/) é um catálogo digital que permite a contratação de soluções de terceiros em um modelo de utilização pay-per-use. São soluções curadas que no geral permitem implementação de diversos níveis de controle e governança. Há também cenários onde a solução de marketplace consiste em um ambiente pré-configurado e o usuário contratante deve fornecer sua própria licença (ex: Splunk Enterprise).
+
+## WAF
+
+O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfront, ALB (EC2), APIGateway ou APPSync (GraphQL APIS)
 
 ## Cloudformation
 
