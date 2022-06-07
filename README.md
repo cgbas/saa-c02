@@ -25,7 +25,8 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
   - [AWS Marketplace](#aws-marketplace)
   - [WAF](#waf)
   - [Bases de Dado AWS](#bases-de-dado-aws)
-    - [Relational e Non-Relational](#relational-e-non-relational)
+    - [Relational](#relational)
+    - [Non-Relational](#non-relational)
     - [DynamoDB](#dynamodb)
     - [Elasticache](#elasticache)
     - [Redshift](#redshift)
@@ -252,7 +253,29 @@ O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfron
 ---
 ## Bases de Dado AWS
 
-### Relational e Non-Relational
+### Relational
++ Multi-AZ
+  + permite um cenário de DR (disaster recovery)
+  + DNS único
+  + failover automático
++ Read-Replica
+  + cópia idêntica apenas para leitura (maior performante em instruções de read)
+  + Mais de um DNS
+  + failover manual
+
+Opções:
++ AWS
+  + Aurora
+    + até 64TB 
+  + MySQL
+    + 20GB (min) até 32TB
+  + MariaDB
+    + até 32TB e 5 Replicas
++ Non-AWS
+  + Oracle
+  + PostgreSQL
+  + MS SQLServer
+### Non-Relational
 
 ### DynamoDB
 ### Elasticache
