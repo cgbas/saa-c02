@@ -1,6 +1,7 @@
 # Notas de estudo para SAA-C02
 
 Repositório com minhas notas de estudo para a certificação de Solutions Architect - Associate, da Amazon.
+- [Comparison of AWS Services Cheat Sheets](https://tutorialsdojo.com/comparison-of-aws-services/)
 
 ## Índice
 - [Notas de estudo para SAA-C02](#notas-de-estudo-para-saa-c02)
@@ -79,6 +80,8 @@ Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e 
 * Tamanho mínimo de arquivo: 1 byte
 * Tamanho máximo de arquivo: 5TB
 
+
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html
 ### Snowball
 
 Serviço: Migration & Tranfer (_Não_ é um serviço de storage)
@@ -107,38 +110,19 @@ Storage Híbrido
 
 ![Storage Gateway](images/aws-storage-gateway.png "Storage Gateway")
 
+- https://aws.amazon.com/storagegateway/faqs/
+- https://aws.amazon.com/storagegateway/
+- https://docs.aws.amazon.com/storagegateway/latest/userguide/CreatingAnSMBFileShare.html
+- [AWS Storage Gateway Overview](https://www.youtube.com/watch?v=pNb7xOBJjHE)
+- [AWS Storage Gateway Cheat Sheet](https://tutorialsdojo.com/aws-storage-gateway/)
 
 ### AWS DataSync
 
-References:
-https://aws.amazon.com/datasync/faqs/
-
-https://aws.amazon.com/storagegateway/faqs/
-
-
-
-Check out these AWS DataSync and Storage Gateway Cheat Sheets:
-
-https://tutorialsdojo.com/aws-datasync/
-
-https://tutorialsdojo.com/aws-storage-gateway/
-https://aws.amazon.com/datasync/faqs/
-
-https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html
-
-https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html
-
-
-
-Check out this AWS DataSync Cheat Sheet:
-
-https://tutorialsdojo.com/aws-datasync/
-
-
-
-AWS Storage Gateway vs DataSync:
-
-https://www.youtube.com/watch?v=tmfe1rO-AUs
+- https://aws.amazon.com/datasync/faqs/
+- https://tutorialsdojo.com/aws-datasync/
+- https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html
+- [AWS DataSync Cheat Sheet](https://tutorialsdojo.com/aws-datasync/)
+- [AWS Storage Gateway vs DataSync](https://www.youtube.com/watch?v=tmfe1rO-AUs)
 	
 ### S3 Transfer Acceleration
 
@@ -190,20 +174,10 @@ Caso você use um S3 como *origin server* pode optar por deixar os objetos públ
 
 #### Lambda@Edge
 
-References:
-
-https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html
-
-https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html
-
-
-
-Check out these Amazon CloudFront and AWS Lambda Cheat Sheets:
-
-https://tutorialsdojo.com/amazon-cloudfront/
-
-https://tutorialsdojo.com/aws-lambda/ 
-
+- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html
+- https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html
+- [Amazon CloudFront Cheat Sheets](https://tutorialsdojo.com/amazon-cloudfront/)
+  
 ---
 ## EC2
 
@@ -594,20 +568,8 @@ References:
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/ways-to-add-notification-config-to-bucket.html
 - https://aws.amazon.com/blogs/aws/s3-event-notification/
 - [Amazon SNS Overview](https://www.youtube.com/watch?v=ft5R45lEUJ8)
-
-Cheat Sheet: https://tutorialsdojo.com/amazon-sqs/
-
- 
-
-Amazon Simple Workflow (SWF) vs AWS Step Functions vs Amazon SQS:
-
-https://tutorialsdojo.com/amazon-simple-workflow-swf-vs-aws-step-functions-vs-amazon-sqs/
-
- 
-
-Comparison of AWS Services Cheat Sheets:
-
-https://tutorialsdojo.com/comparison-of-aws-services/
+- [Amazon SQS Cheat Sheet](https://tutorialsdojo.com/amazon-sqs/)
+- [Amazon Simple Workflow (SWF) vs AWS Step Functions vs Amazon SQS](https://tutorialsdojo.com/amazon-simple-workflow-swf-vs-aws-step-functions-vs-amazon-sqs/)
 
 ---
 ## Serverless Lambda
@@ -615,18 +577,8 @@ https://tutorialsdojo.com/comparison-of-aws-services/
 - https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 - https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
 - https://aws.amazon.com/blogs/compute/new-aws-lambda-controls-for-stream-processing-and-asynchronous-invocations/
-
-
-
-AWS Lambda Overview - Serverless Computing in AWS:
-
-https://www.youtube.com/watch?v=bPVX1zHwAnY
-
-
-
-Tutorials Dojo's AWS Certified Solutions Architect Associate Exam Study Guide:
-
-https://tutorialsdojo.com/aws-certified-solutions-architect-associate/
+- [AWS Lambda Cheat Sheets](https://tutorialsdojo.com/aws-lambda/)
+- [AWS Lambda Overview - Serverless Computing in AWS](https://www.youtube.com/watch?v=bPVX1zHwAnY)
 
 ---
 ## Cloudformation
