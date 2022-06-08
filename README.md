@@ -20,7 +20,6 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
     - [Billing @ EC2](#billing--ec2)
     - [Placement Groups](#placement-groups)
     - [EBS](#ebs)
-      - [Criando um volume](#criando-um-volume)
     - [Snapshots](#snapshots)
     - [Data Lifecycle Manager](#data-lifecycle-manager)
     - [User Data](#user-data)
@@ -212,6 +211,12 @@ E também temos a opção de ativar um **Saving Plan**, onde um desconto é forn
 
 Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://calculator.aws/#/). Para visualizar todas suas instâncias EC2, utilize o [Global View](https://us-east-1.console.aws.amazon.com/ec2globalview/home?region=us-east-1#)
 
+- [Limites de Serviço](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ec2)
+- [Quantas instâncias EC2 posso ter por região?](https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2)
+  - On-Demand: vCPU-based limit
+  - Reserved: 20
+  - Spot: Dynamic Spot limit
+
 ### Billing @ EC2
 
 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
@@ -237,20 +242,6 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 - [Amazon EBS Overview - SSD vs HDD](https://www.youtube.com/watch?v=LW7x8wyLFvw)
 - [EBS Cheat Sheet](https://tutorialsdojo.com/amazon-ebs/)
 - [EBS Overview](https://youtu.be/ljYH5lHQdxo)
-
-#### Criando um volume
-
-**EC2** => Elastic Block Storage => Volumes => Create Volume (...) 
-
-**Informar**: 
-+ Type
-+ Size
-+ AZ
-+ Encryption (opcional)
-+ Snapshot ID (opcional, apenas se for utilizar um como base))
-+ Tags
-
-**=> Create Volume**
 
 ### Snapshots
 
