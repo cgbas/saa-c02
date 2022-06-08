@@ -43,6 +43,7 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
   - [Route53](#route53)
     - [Route53 and S3 Website Hosting](#route53-and-s3-website-hosting)
   - [VPC](#vpc)
+    - [Gateway e Interface Endpoints](#gateway-e-interface-endpoints)
     - [NAT](#nat)
     - [LoadBalancing](#loadbalancing)
   - [IAM](#iam)
@@ -524,22 +525,19 @@ https://tutorialsdojo.com/amazon-route-53/
 - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html
 - https://aws.amazon.com/vpc/faqs/
 - ACLs: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+- [Amazon VPC Cheat Sheet](https://tutorialsdojo.com/amazon-vpc/)
+### Gateway e Interface Endpoints
 
+- https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html
+- https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html
 
+![VPC Endpoint](images/amazon-s3-vpc-endpoint.png "VPC Endpoint")
 
-Check out this Amazon VPC Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-vpc/
 
 ### NAT
 
 - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
-
-
-Check out this Amazon VPC Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-vpc/
 
 ### LoadBalancing
 
