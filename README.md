@@ -9,10 +9,12 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
     - [S3](#s3)
     - [Snowball](#snowball)
     - [StorageGateway](#storagegateway)
+    - [AWS DataSync](#aws-datasync)
     - [S3 Transfer Acceleration](#s3-transfer-acceleration)
     - [RRS](#rrs)
     - [Hospedando um website com S3](#hospedando-um-website-com-s3)
     - [Cloudfront](#cloudfront)
+      - [Lambda@Edge](#lambdaedge)
   - [EC2](#ec2)
     - [EBS](#ebs)
       - [Criando um volume](#criando-um-volume)
@@ -22,21 +24,28 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
     - [Instance Hibernation](#instance-hibernation)
     - [Security Groups](#security-groups)
     - [EFS](#efs)
+    - [File Storages](#file-storages)
+      - [FSx for Windows File Systems](#fsx-for-windows-file-systems)
   - [AWS Marketplace](#aws-marketplace)
   - [WAF](#waf)
   - [Bases de Dado AWS](#bases-de-dado-aws)
     - [Relational](#relational)
-    - [Non-Relational](#non-relational)
+    - [Aurora Serverless](#aurora-serverless)
+    - [Aurora Global Database](#aurora-global-database)
     - [DynamoDB](#dynamodb)
     - [Elasticache](#elasticache)
     - [Redshift](#redshift)
     - [Amazon Aurora](#amazon-aurora)
+    - [IAM DB](#iam-db)
   - [Aplicações AWS](#aplicações-aws)
   - [Route53](#route53)
   - [VPC](#vpc)
+    - [NAT](#nat)
+    - [LoadBalancing](#loadbalancing)
   - [Aplicações AWS](#aplicações-aws-1)
   - [Serverless Lambda](#serverless-lambda)
   - [Cloudformation](#cloudformation)
+  - [Cloudwatch](#cloudwatch)
 
 ---
 ## Armazenamento e Migração de Dados
@@ -82,9 +91,45 @@ Tranferência para applicance e então para o S3 sem utilizar internet
 * Snowmobile (100PT, contêiner de 15m)	
 
 ### StorageGateway
+
+Storage Híbrido
+
 * FileGateway
 * VolumeGateway
 * TapeGateway - VTL
+
+
+### AWS DataSync
+
+References:
+https://aws.amazon.com/datasync/faqs/
+
+https://aws.amazon.com/storagegateway/faqs/
+
+
+
+Check out these AWS DataSync and Storage Gateway Cheat Sheets:
+
+https://tutorialsdojo.com/aws-datasync/
+
+https://tutorialsdojo.com/aws-storage-gateway/
+https://aws.amazon.com/datasync/faqs/
+
+https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html
+
+
+
+Check out this AWS DataSync Cheat Sheet:
+
+https://tutorialsdojo.com/aws-datasync/
+
+
+
+AWS Storage Gateway vs DataSync:
+
+https://www.youtube.com/watch?v=tmfe1rO-AUs
 	
 ### S3 Transfer Acceleration
 
@@ -129,6 +174,22 @@ Por padrão o cache em uma Edge Location tem um prazo de 24h para expiração at
 
 Caso você use um S3 como *origin server* pode optar por deixar os objetos públicos no bucket ou então mantê-los privados e somente [URLs assinadas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) podem acessá-los.
 
+#### Lambda@Edge
+
+References:
+
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html
+
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html
+
+
+
+Check out these Amazon CloudFront and AWS Lambda Cheat Sheets:
+
+https://tutorialsdojo.com/amazon-cloudfront/
+
+https://tutorialsdojo.com/aws-lambda/ 
+
 ---
 ## EC2
 
@@ -170,6 +231,26 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 * Volumes SSD são mais recomendados para bancos de dados e volumes de inicialização, workloads transacionais. Dependência em IOPs.
 
 * Volumes HDD são recomendados para workloads com tranferência intensa, como MapReduce ou então processamento de logs. Dependência em MB/s. Ainda em HDD há a opção Cold para dados que uma vez processados são pouco acessados e têm poucas verificações diárias.
+
+
+References:
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html
+
+
+
+Amazon EBS Overview - SSD vs HDD:
+
+https://www.youtube.com/watch?v=LW7x8wyLFvw
+
+
+
+Check out this Amazon EBS Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-ebs/
+
 
 #### Criando um volume
 
@@ -241,6 +322,35 @@ Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/Use
 
 O [Elastic File System](https://aws.amazon.com/efs/?nc1=h_ls) permite que você tenha mais de uma instância anexada a um mesmo volume, algo que não é possível com o EBS. Ele é provisionado na ideia set-and-forget, sem tamanho mínimo e com pagamento apenas para o armazenamento utilizado. Recomendado para armazenamento com acesso infrequente, se adaptando ao *throughput* dinamicamente. Dentro de uma instância amazon linux, basta instalar o pacote `amazon-efs-utils` e realizar um mount (por IP ou DNS) após isso. É importante que o SG do EFS tenha uma regra para permitir acesso (inbound) via o SG das instâncias que irão anexá-lo.
 
+### File Storages
+
+References:
+
+https://aws.amazon.com/fsx/
+
+https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-storage-optimization/aws-storage-services.html
+
+https://aws.amazon.com/blogs/startups/picking-the-right-data-store-for-your-workload/
+
+
+
+Check out this Amazon FSx Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-fsx/
+
+
+#### FSx for Windows File Systems
+
+https://aws.amazon.com/fsx/windows/faqs/
+
+https://docs.aws.amazon.com/fsx/latest/WindowsGuide/migrate-file-share-config-to-fsx.html
+
+
+
+Check out this Amazon FSx Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-fsx/
+
 ---
 ## AWS Marketplace
 
@@ -253,7 +363,16 @@ O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfron
 ---
 ## Bases de Dado AWS
 
+
+Backups:
++ Automated
+  + Amazenado no S3
++ DB Snapshot
+  + Manual
+  + Pode rodar automaticamente ao deletar uma instância caso habilitado na criação
+
 ### Relational
+
 + Multi-AZ
   + permite um cenário de DR (disaster recovery)
   + DNS único
@@ -262,6 +381,7 @@ O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfron
   + cópia idêntica apenas para leitura (maior performante em instruções de read)
   + Mais de um DNS
   + failover manual
+  + Backup **deve** estar habilitado
 
 Opções:
 + AWS
@@ -275,27 +395,175 @@ Opções:
   + Oracle
   + PostgreSQL
   + MS SQLServer
-### Non-Relational
 
+
+### Aurora Serverless
+
+https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html
+
+https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
+
+### Aurora Global Database
+
+References:
+
+https://aws.amazon.com/rds/aurora/global-database/
+
+https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html
+
+
+Amazon Aurora Overview:
+
+https://youtu.be/iwS1h7rLNBQ
+
+Check out this Amazon Aurora Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-aurora/
+  
 ### DynamoDB
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-uniform-load.html
+
+https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/
+
+Não-relacional
 ### Elasticache
+
+References:
+
+https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html
+
+https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/encryption.html
+
+
+
+Check out this Amazon Elasticache Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-elasticache/
+
+
+
+Redis (cluster mode enabled vs disabled) vs Memcached:
+
+https://tutorialsdojo.com/redis-cluster-mode-enabled-vs-disabled-vs-memcached/
 ### Redshift
 ### Amazon Aurora
+
+### IAM DB
+
+Reference:
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html
+
+
+
+Check out this Amazon RDS Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-relational-database-service-amazon-rds/
 
 ---
 ## Aplicações AWS
 
 ---
 ## Route53
+References:
+
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geoproximity
+
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrsets-working-with.html
+
+
+
+Latency Routing vs Geoproximity Routing vs Geolocation Routing:
+
+https://tutorialsdojo.com/latency-routing-vs-geoproximity-routing-vs-geolocation-routing/
+
 
 ---
 ## VPC
 
+References:
+
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html
+
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#vpc-ip-addressing-subnet
+
+### NAT
+References:
+
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
+
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
+
+
+
+Check out this Amazon VPC Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-vpc/
+
+
+
+### LoadBalancing
+
+https://aws.amazon.com/premiumsupport/knowledge-center/elb-attach-elastic-ip-to-public-nlb/
+
+https://aws.amazon.com/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
+
+Check out this AWS Elastic Load Balancing Cheat Sheet:
+
+https://tutorialsdojo.com/aws-elastic-load-balancing-elb/
+
 ---
+
 ## Aplicações AWS
+References:
+
+https://aws.amazon.com/sqs/
+
+http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-welcome.html
+
+ 
+
+Check out this Amazon SQS Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-sqs/
+
+ 
+
+Amazon Simple Workflow (SWF) vs AWS Step Functions vs Amazon SQS:
+
+https://tutorialsdojo.com/amazon-simple-workflow-swf-vs-aws-step-functions-vs-amazon-sqs/
+
+ 
+
+Comparison of AWS Services Cheat Sheets:
+
+https://tutorialsdojo.com/comparison-of-aws-services/
 
 ---
 ## Serverless Lambda
+
+References:
+
+https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
+
+https://aws.amazon.com/blogs/compute/new-aws-lambda-controls-for-stream-processing-and-asynchronous-invocations/
+
+
+
+AWS Lambda Overview - Serverless Computing in AWS:
+
+https://www.youtube.com/watch?v=bPVX1zHwAnY
+
+
+
+Tutorials Dojo's AWS Certified Solutions Architect Associate Exam Study Guide:
+
+https://tutorialsdojo.com/aws-certified-solutions-architect-associate/
 
 ---
 ## Cloudformation
@@ -303,3 +571,13 @@ Opções:
 O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um serviço de IAC. Permite a criação de infraestrutura através de um template code em formato YAML ou JSON.
 
 
+## Cloudwatch
+
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-tutorial-ECS.html
+
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html
+
+
+Amazon CloudWatch Overview:
+
+https://www.youtube.com/watch?v=q0DmxfyGkeU
