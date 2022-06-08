@@ -397,8 +397,8 @@ Rápido e escalável, utiliza ML, execução paralela de queries massivas e **ar
 
 - https://docs.aws.amazon.com/redshift/latest/dg/c_columnar_storage_disk_mem_mgmnt.html
 - https://aws.amazon.com/redshift/
-- [Amazon Redshift Overview]https://youtu.be/jlLERNzhHOg
-- [Amazon Redshift Cheat Sheet]https://tutorialsdojo.com/amazon-redshift/
+- [Amazon Redshift Overview](https://youtu.be/jlLERNzhHOg)
+- [Amazon Redshift Cheat Sheet](https://tutorialsdojo.com/amazon-redshift/)
 - [Kinesis vs EMR vs Athena vs Redshift](https://youtu.be/wEOm6aiN4ww)
   - Estudo de caso avaliando as ferramentas de analytics mais recomendadas
 ### Amazon Aurora
