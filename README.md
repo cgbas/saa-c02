@@ -217,6 +217,7 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
   - Reserved: 20
   - Spot: Dynamic Spot limit
 - [vCPU Limits Calculator (Console AWS)](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#LimitsCalculator:)
+  - Caso tenha atingido algum limite, é possível abrir um case para aumentá-lo no caso de Spot ou On-Demand
 ![Limits Calculator](images/vCPU-limit.png)
 
 ### Billing @ EC2
