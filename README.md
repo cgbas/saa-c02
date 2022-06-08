@@ -105,6 +105,8 @@ Storage Híbrido
 * VolumeGateway
 * TapeGateway - VTL
 
+![Storage Gateway](images/aws-storage-gateway.png "Storage Gateway")
+
 
 ### AWS DataSync
 
