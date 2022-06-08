@@ -413,6 +413,15 @@ Rápido e escalável, utiliza ML, execução paralela de queries massivas e **ar
 
 - https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-ddb.html
 - https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html
+- 
+![Kinesis Data Firehose](images/kinesis-firehose.png)
+
+O Kinesis Firehose é um serviço completamente gerenciado que escala com o throughput de dados e não necessita de administração. Os dados são colocados em batches, comprimidos e encriptados antes do carregamento, minimizando uso de storage e aumentando segurança. É a maneira mais simples de capturar, transformar e carregar dados de streaming no S3, RedShift, Elasticsearch e Splunk.
+
+Permite ordenamento de registros e também o replay dos mesmos para várias aplicações Kinesis, tornando-o um forte aliado do Kinesis Data Streams para processamento near-real-time de big data.
+
+- https://aws.amazon.com/kinesis/data-firehose/
+- https://aws.amazon.com/kinesis/data-streams/faqs/
 
 ## Route53
 
