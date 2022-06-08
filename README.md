@@ -53,6 +53,7 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
   - [Serverless Lambda](#serverless-lambda)
   - [Cloudformation](#cloudformation)
   - [Cloudwatch](#cloudwatch)
+  - [API Gateway](#api-gateway)
 
 ---
 ## Armazenamento e Migração de Dados
@@ -304,34 +305,17 @@ O [Elastic File System](https://aws.amazon.com/efs/?nc1=h_ls) permite que você 
 
 ### File Storages
 
-References:
-
-https://aws.amazon.com/fsx/
-
-https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-storage-optimization/aws-storage-services.html
-
-https://aws.amazon.com/blogs/startups/picking-the-right-data-store-for-your-workload/
-
-
-
-Check out this Amazon FSx Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-fsx/
+- https://aws.amazon.com/fsx/
+- https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-storage-optimization/aws-storage-services.html
+- https://aws.amazon.com/blogs/startups/picking-the-right-data-store-for-your-workload/
+- [Amazon FSx Cheat Sheet](https://tutorialsdojo.com/amazon-fsx/)
 
 
 #### FSx for Windows File Systems
 
-https://aws.amazon.com/fsx/windows/faqs/
+- https://aws.amazon.com/fsx/windows/faqs/
+- https://docs.aws.amazon.com/fsx/latest/WindowsGuide/migrate-file-share-config-to-fsx.html
 
-https://docs.aws.amazon.com/fsx/latest/WindowsGuide/migrate-file-share-config-to-fsx.html
-
-
-
-Check out this Amazon FSx Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-fsx/
-
----
 ## AWS Marketplace
 
 O [AWS Marketplace](https://aws.amazon.com/mp/marketplace-service/overview/) é um catálogo digital que permite a contratação de soluções de terceiros em um modelo de utilização pay-per-use. São soluções curadas que no geral permitem implementação de diversos níveis de controle e governança. Há também cenários onde a solução de marketplace consiste em um ambiente pré-configurado e o usuário contratante deve fornecer sua própria licença (ex: Splunk Enterprise).
@@ -379,107 +363,53 @@ Opções:
 
 ### Aurora Serverless
 
-https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html
-
-https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
 
 ### Aurora Global Database
 
-References:
-
-https://aws.amazon.com/rds/aurora/global-database/
-
-https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html
-
-
-Amazon Aurora Overview:
-
-https://youtu.be/iwS1h7rLNBQ
-
-Check out this Amazon Aurora Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-aurora/
+- https://aws.amazon.com/rds/aurora/global-database/
+- https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html
+- [Amazon Aurora Overview](https://youtu.be/iwS1h7rLNBQ)
+- [Amazon Aurora Cheat Sheet](https://tutorialsdojo.com/amazon-aurora/)
   
 ### DynamoDB
 
-https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-uniform-load.html
-
-https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/
-
-Não-relacional
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-uniform-load.html
+- https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/
+- https://aws.amazon.com/dynamodb/dax/
+  
 ### Elasticache
 
-References:
+- https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html
+- https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/encryption.html
+- [Amazon Elasticache Cheat Sheet](https://tutorialsdojo.com/amazon-elasticache/)
+- [Redis (cluster mode enabled vs disabled) vs Memcached](https://tutorialsdojo.com/redis-cluster-mode-enabled-vs-disabled-vs-memcached/)
 
-https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html
-
-https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/encryption.html
-
-
-
-Check out this Amazon Elasticache Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-elasticache/
-
-
-
-Redis (cluster mode enabled vs disabled) vs Memcached:
-
-https://tutorialsdojo.com/redis-cluster-mode-enabled-vs-disabled-vs-memcached/
 ### Redshift
 ### Amazon Aurora
 
 ### IAM DB
 
-Reference:
-
-https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html
-
-
-
-Check out this Amazon RDS Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-relational-database-service-amazon-rds/
+- https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html
+- [Amazon RDS Cheat Sheet](https://tutorialsdojo.com/amazon-relational-database-service-amazon-rds/)
 
 ---
 ## Kinesis & Streams
 
-Reference:
+- https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-ddb.html
+- https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html
 
-https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-ddb.html
-
-https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html
-
----
 ## Route53
-References:
 
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geoproximity
-
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrsets-working-with.html
-
-
-
-Latency Routing vs Geoproximity Routing vs Geolocation Routing:
-
-https://tutorialsdojo.com/latency-routing-vs-geoproximity-routing-vs-geolocation-routing/
-
-
+- https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geoproximity
+- https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrsets-working-with.html
+- [Latency Routing vs Geoproximity Routing vs Geolocation Routing](https://tutorialsdojo.com/latency-routing-vs-geoproximity-routing-vs-geolocation-routing/)
 ### Route53 and S3 Website Hosting
 
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/RoutingToS3Bucket.html
-
-
-
-Amazon Route 53 Overview:
-
-https://www.youtube.com/watch?v=Su308t19ubY
-
-
-
-Check out this Amazon Route 53 Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-route-53/
+- [Roteando do Route53 para um Bucket S3](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/RoutingToS3Bucket.html)
+- [Amazon Route 53 Overview](https://www.youtube.com/watch?v=Su308t19ubY)
+- [Amazon Route 53 Cheat Sheet](https://tutorialsdojo.com/amazon-route-53/)
 
 ---
 ## VPC
@@ -519,37 +449,20 @@ https://tutorialsdojo.com/amazon-route-53/
 ---
 ## IAM
 
-Reference:
-
-https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
-
-
-
-AWS Identity Services Overview:
-
-https://www.youtube.com/watch?v=AIdUw0i8rr0
-
-
-
-Check out this AWS IAM Cheat Sheet:
-
-https://tutorialsdojo.com/aws-identity-and-access-management-iam/
-
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
+- [AWS Identity Services Overview](https://www.youtube.com/watch?v=AIdUw0i8rr0)
+- [AWS IAM Cheat Sheet](https://tutorialsdojo.com/aws-identity-and-access-management-iam/)
 ### AWS Config
 
 - https://aws.amazon.com/config/
 - https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html
-
-Check out this AWS Config Cheat Sheet:
-
-https://tutorialsdojo.com/aws-config/
+- [AWS Config Cheat Sheet](https://tutorialsdojo.com/aws-config/)
 
 ### SQS e SWF
 
 - https://aws.amazon.com/sqs/
 - http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-welcome.html
 - https://aws.amazon.com/sqs/faqs/
-
 
 ### SNS
 
@@ -568,6 +481,7 @@ References:
 - https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 - https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
 - https://aws.amazon.com/blogs/compute/new-aws-lambda-controls-for-stream-processing-and-asynchronous-invocations/
+- https://aws.amazon.com/lambda/faqs/
 - [AWS Lambda Cheat Sheets](https://tutorialsdojo.com/aws-lambda/)
 - [AWS Lambda Overview - Serverless Computing in AWS](https://www.youtube.com/watch?v=bPVX1zHwAnY)
 
@@ -587,3 +501,7 @@ O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um servi�
 
 - https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-tutorial-ECS.html
 - https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html
+
+## API Gateway
+
+- https://aws.amazon.com/api-gateway/faqs/
