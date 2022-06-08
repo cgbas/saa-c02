@@ -1,8 +1,13 @@
 # Notas de estudo para SAA-C02
 
-Repositório com minhas notas de estudo para a certificação de Solutions Architect - Associate, da Amazon.
-- [Comparison of AWS Services Cheat Sheets](https://tutorialsdojo.com/comparison-of-aws-services/)
+**ATENÇÃO**: Esse não é um material que cobre 100% da prova, estou anotando somente tópicos que estou revisando antes do exame e pretendo acertar o índice e a ordem dos tópicos conforme avançar nos estudos. 
 
+- Se você já tem familiaridade com AWS, recomendo NÃO comprar cursos e partir direto para practice exams até você ficar confiante e começar a acertar mais de 85% entendendo o contexto das questões, sem mera decoreba
+- Repositório com minhas notas de estudo para a certificação de Solutions Architect - Associate, da Amazon.
+- [Comparison of AWS Services Cheat Sheets](https://tutorialsdojo.com/comparison-of-aws-services/)
+- Recomendo fortemente os testes do Jon Bonso, comprei pelo [Udemy](https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c03/)
+  - **Lembre de tentar em aba anônima para não comprar pelo preço cheio**
+  - A maioria dos links de referência aqui é com base nas questões que eu revisei dos practice exams e os cheat sheets são todos do Tutorials Dojo, do Jon Bonso
 ## Índice
 - [Notas de estudo para SAA-C02](#notas-de-estudo-para-saa-c02)
   - [Índice](#índice)
