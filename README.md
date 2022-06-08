@@ -229,17 +229,14 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 
 * Volumes HDD são recomendados para workloads com tranferência intensa, como MapReduce ou então processamento de logs. Dependência em MB/s. Ainda em HDD há a opção Cold para dados que uma vez processados são pouco acessados e têm poucas verificações diárias.
 
-
-References:
-
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html
 - https://aws.amazon.com/ebs/features/
 - https://aws.amazon.com/ebs/details/
 - [Amazon EBS Overview - SSD vs HDD](https://www.youtube.com/watch?v=LW7x8wyLFvw)
-- [Cheat Sheet](https://tutorialsdojo.com/amazon-ebs/)
-- https://youtu.be/ljYH5lHQdxo
+- [EBS Cheat Sheet](https://tutorialsdojo.com/amazon-ebs/)
+- [EBS Overview](https://youtu.be/ljYH5lHQdxo)
 
 #### Criando um volume
 
