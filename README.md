@@ -16,6 +16,8 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
     - [Cloudfront](#cloudfront)
       - [Lambda@Edge](#lambdaedge)
   - [EC2](#ec2)
+    - [Billing @ EC2](#billing--ec2)
+    - [Placement Groups](#placement-groups)
     - [EBS](#ebs)
       - [Criando um volume](#criando-um-volume)
     - [Snapshots](#snapshots)
@@ -37,12 +39,16 @@ Repositório com minhas notas de estudo para a certificação de Solutions Archi
     - [Redshift](#redshift)
     - [Amazon Aurora](#amazon-aurora)
     - [IAM DB](#iam-db)
-  - [Aplicações AWS](#aplicações-aws)
+  - [Kinesis & Streams](#kinesis--streams)
   - [Route53](#route53)
+    - [Route53 and S3 Website Hosting](#route53-and-s3-website-hosting)
   - [VPC](#vpc)
     - [NAT](#nat)
     - [LoadBalancing](#loadbalancing)
-  - [Aplicações AWS](#aplicações-aws-1)
+  - [IAM](#iam)
+    - [AWS Config](#aws-config)
+    - [SQS e SWF](#sqs-e-swf)
+    - [SNS](#sns)
   - [Serverless Lambda](#serverless-lambda)
   - [Cloudformation](#cloudformation)
   - [Cloudwatch](#cloudwatch)
@@ -174,6 +180,11 @@ Por padrão o cache em uma Edge Location tem um prazo de 24h para expiração at
 
 Caso você use um S3 como *origin server* pode optar por deixar os objetos públicos no bucket ou então mantê-los privados e somente [URLs assinadas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) podem acessá-los.
 
+- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
+- [Amazon CloudFront cheat sheet](https://tutorialsdojo.com/amazon-cloudfront/)
+- [S3 Pre-signed URLs vs CloudFront Signed URLs vs Origin Access Identity (OAI)](https://tutorialsdojo.com/s3-pre-signed-urls-vs-cloudfront-signed-urls-vs-origin-access-identity-oai/)
+
 #### Lambda@Edge
 
 References:
@@ -224,6 +235,15 @@ E também temos a opção de ativar um **Saving Plan**, onde um desconto é forn
 
 Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://calculator.aws/#/). Para visualizar todas suas instâncias EC2, utilize o [Global View](https://us-east-1.console.aws.amazon.com/ec2globalview/home?region=us-east-1#)
 
+### Billing @ EC2
+
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
+
+### Placement Groups
+
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+- https://aws.amazon.com/hpc/
+
 ### EBS
 
 O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD. São projetados para fornecer 99.999% de disponibilidar (5 noves). 
@@ -235,22 +255,14 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 
 References:
 
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
-
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html
-
-
-
-Amazon EBS Overview - SSD vs HDD:
-
-https://www.youtube.com/watch?v=LW7x8wyLFvw
-
-
-
-Check out this Amazon EBS Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-ebs/
-
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html
+- https://aws.amazon.com/ebs/features/
+- https://aws.amazon.com/ebs/details/
+- [Amazon EBS Overview - SSD vs HDD](https://www.youtube.com/watch?v=LW7x8wyLFvw)
+- [Cheat Sheet](https://tutorialsdojo.com/amazon-ebs/)
+- https://youtu.be/ljYH5lHQdxo
 
 #### Criando um volume
 
@@ -462,7 +474,13 @@ Check out this Amazon RDS Cheat Sheet:
 https://tutorialsdojo.com/amazon-relational-database-service-amazon-rds/
 
 ---
-## Aplicações AWS
+## Kinesis & Streams
+
+Reference:
+
+https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-ddb.html
+
+https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html
 
 ---
 ## Route53
@@ -479,21 +497,33 @@ Latency Routing vs Geoproximity Routing vs Geolocation Routing:
 https://tutorialsdojo.com/latency-routing-vs-geoproximity-routing-vs-geolocation-routing/
 
 
+### Route53 and S3 Website Hosting
+
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/RoutingToS3Bucket.html
+
+
+
+Amazon Route 53 Overview:
+
+https://www.youtube.com/watch?v=Su308t19ubY
+
+
+
+Check out this Amazon Route 53 Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-route-53/
+
 ---
 ## VPC
 
-References:
-
-http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html
-
-https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#vpc-ip-addressing-subnet
-
-### NAT
-References:
-
-https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
-
-https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
+- http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html
+- http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
+- Route Tables: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html
+- https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#vpc-ip-addressing-subnet
+- https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html
+- https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html
+- https://aws.amazon.com/vpc/faqs/
+- ACLs: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
 
 
 
@@ -501,34 +531,71 @@ Check out this Amazon VPC Cheat Sheet:
 
 https://tutorialsdojo.com/amazon-vpc/
 
+### NAT
 
+- https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
+- https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
+
+
+Check out this Amazon VPC Cheat Sheet:
+
+https://tutorialsdojo.com/amazon-vpc/
 
 ### LoadBalancing
 
-https://aws.amazon.com/premiumsupport/knowledge-center/elb-attach-elastic-ip-to-public-nlb/
-
-https://aws.amazon.com/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/
-
-https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
-
-Check out this AWS Elastic Load Balancing Cheat Sheet:
-
-https://tutorialsdojo.com/aws-elastic-load-balancing-elb/
+- https://aws.amazon.com/premiumsupport/knowledge-center/elb-attach-elastic-ip-to-public-nlb/
+- https://aws.amazon.com/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/
+- https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
+- https://aws.amazon.com/elasticloadbalancing/
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-increase-availability.html
+- [AWS Elastic Load Balancing Overview](https://youtu.be/UBl5dw59DO8)
+- [AWS Elastic Load Balancing (ELB) Cheat Sheet](https://tutorialsdojo.com/aws-elastic-load-balancing-elb/)
 
 ---
+## IAM
 
-## Aplicações AWS
+Reference:
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
+
+
+
+AWS Identity Services Overview:
+
+https://www.youtube.com/watch?v=AIdUw0i8rr0
+
+
+
+Check out this AWS IAM Cheat Sheet:
+
+https://tutorialsdojo.com/aws-identity-and-access-management-iam/
+
+### AWS Config
+
+- https://aws.amazon.com/config/
+- https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html
+
+Check out this AWS Config Cheat Sheet:
+
+https://tutorialsdojo.com/aws-config/
+
+### SQS e SWF
+
+- https://aws.amazon.com/sqs/
+- http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-welcome.html
+- https://aws.amazon.com/sqs/faqs/
+
+
+### SNS
+
 References:
 
-https://aws.amazon.com/sqs/
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/ways-to-add-notification-config-to-bucket.html
+- https://aws.amazon.com/blogs/aws/s3-event-notification/
+- [Amazon SNS Overview](https://www.youtube.com/watch?v=ft5R45lEUJ8)
 
-http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-welcome.html
-
- 
-
-Check out this Amazon SQS Cheat Sheet:
-
-https://tutorialsdojo.com/amazon-sqs/
+Cheat Sheet: https://tutorialsdojo.com/amazon-sqs/
 
  
 
@@ -545,13 +612,9 @@ https://tutorialsdojo.com/comparison-of-aws-services/
 ---
 ## Serverless Lambda
 
-References:
-
-https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
-
-https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
-
-https://aws.amazon.com/blogs/compute/new-aws-lambda-controls-for-stream-processing-and-asynchronous-invocations/
+- https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+- https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html
+- https://aws.amazon.com/blogs/compute/new-aws-lambda-controls-for-stream-processing-and-asynchronous-invocations/
 
 
 
@@ -570,14 +633,14 @@ https://tutorialsdojo.com/aws-certified-solutions-architect-associate/
 
 O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um serviço de IAC. Permite a criação de infraestrutura através de um template code em formato YAML ou JSON.
 
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html#deployment-walkthrough-cfn-signal
+- https://aws.amazon.com/blogs/devops/use-a-creationpolicy-to-wait-for-on-instance-configurations/
+- [Amazon CloudWatch Overview](https://www.youtube.com/watch?v=q0DmxfyGkeU)
+- [AWS CloudFormation Cheat Sheet](https://tutorialsdojo.com/aws-cloudformation/)
+- [AWS CloudFormation - Templates, Stacks, Change Sets](https://www.youtube.com/watch?v=9Xpuprxg7aY)
 
 ## Cloudwatch
 
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-tutorial-ECS.html
-
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html
-
-
-Amazon CloudWatch Overview:
-
-https://www.youtube.com/watch?v=q0DmxfyGkeU
+- https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-tutorial-ECS.html
+- https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html
