@@ -392,6 +392,15 @@ Opções:
 - [Redis (cluster mode enabled vs disabled) vs Memcached](https://tutorialsdojo.com/redis-cluster-mode-enabled-vs-disabled-vs-memcached/)
 
 ### Redshift
+
+Rápido e escalável, utiliza ML, execução paralela de queries massivas e **armazenamento colunar** para alta performance de disco. Ideal para sistemas de relatório de BI, que são um tipo de OLAP (Online Analytical Processing)
+
+- https://docs.aws.amazon.com/redshift/latest/dg/c_columnar_storage_disk_mem_mgmnt.html
+- https://aws.amazon.com/redshift/
+- [Amazon Redshift Overview]https://youtu.be/jlLERNzhHOg
+- [Amazon Redshift Cheat Sheet]https://tutorialsdojo.com/amazon-redshift/
+- [Kinesis vs EMR vs Athena vs Redshift](https://youtu.be/wEOm6aiN4ww)
+  - Estudo de caso avaliando as ferramentas de analytics mais recomendadas
 ### Amazon Aurora
 
 ### IAM DB
