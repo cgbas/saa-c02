@@ -11,26 +11,25 @@
 ## Índice
 - [Notas de estudo para SAA-C02](#notas-de-estudo-para-saa-c02)
   - [Índice](#índice)
-  - [Armazenamento e Migração de Dados](#armazenamento-e-migração-de-dados)
-    - [S3](#s3)
-    - [Snowball](#snowball)
-    - [StorageGateway](#storagegateway)
-    - [AWS DataSync](#aws-datasync)
-    - [S3 Transfer Acceleration](#s3-transfer-acceleration)
-    - [RRS](#rrs)
-    - [Hospedando um website com S3](#hospedando-um-website-com-s3)
-    - [Cloudfront](#cloudfront)
-      - [Lambda@Edge](#lambdaedge)
+  - [S3](#s3)
+  - [S3 Transfer Acceleration](#s3-transfer-acceleration)
+  - [Hospedando um website com S3](#hospedando-um-website-com-s3)
+  - [Snowball](#snowball)
+  - [StorageGateway](#storagegateway)
+  - [AWS DataSync](#aws-datasync)
+  - [RRS](#rrs)
+  - [Cloudfront](#cloudfront)
+    - [Lambda@Edge](#lambdaedge)
   - [EC2](#ec2)
-    - [Billing @ EC2](#billing--ec2)
-    - [Placement Groups](#placement-groups)
-    - [EBS](#ebs)
-    - [Snapshots](#snapshots)
-    - [Data Lifecycle Manager](#data-lifecycle-manager)
-    - [User Data](#user-data)
-    - [Instance Hibernation](#instance-hibernation)
-    - [Security Groups](#security-groups)
-    - [EFS](#efs)
+  - [Billing @ EC2](#billing--ec2)
+  - [Placement Groups](#placement-groups)
+  - [EBS](#ebs)
+  - [Snapshots](#snapshots)
+  - [Data Lifecycle Manager](#data-lifecycle-manager)
+  - [User Data](#user-data)
+  - [Instance Hibernation](#instance-hibernation)
+  - [Security Groups](#security-groups)
+  - [EFS](#efs)
     - [File Storages](#file-storages)
       - [FSx for Windows File Systems](#fsx-for-windows-file-systems)
   - [AWS Marketplace](#aws-marketplace)
@@ -47,22 +46,22 @@
   - [Kinesis & Streams](#kinesis--streams)
   - [Route53](#route53)
     - [Route53 and S3 Website Hosting](#route53-and-s3-website-hosting)
+  - [Direct Connect & Transit Gateways](#direct-connect--transit-gateways)
   - [VPC](#vpc)
     - [Gateway e Interface Endpoints](#gateway-e-interface-endpoints)
-    - [NAT](#nat)
-    - [LoadBalancing](#loadbalancing)
+  - [NAT](#nat)
+  - [LoadBalancing](#loadbalancing)
   - [IAM](#iam)
-    - [AWS Config](#aws-config)
-    - [SQS e SWF](#sqs-e-swf)
-    - [SNS](#sns)
+  - [AWS Config](#aws-config)
+  - [SQS e SWF](#sqs-e-swf)
+  - [SNS](#sns)
   - [Serverless Lambda](#serverless-lambda)
   - [Cloudformation](#cloudformation)
   - [Cloudwatch](#cloudwatch)
   - [API Gateway](#api-gateway)
+  - [AWS Global Accelerator](#aws-global-accelerator)
 
----
-## Armazenamento e Migração de Dados
-### S3
+## S3
 
 Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e durabilidade. Possui diversas classes de armazenamento. Possuem classes de armazenamento que no geral se baseiam na frequência de acesso:
 
@@ -87,7 +86,27 @@ Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e 
 
 
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html
-### Snowball
+
+## S3 Transfer Acceleration
+
+Exemplo: temos um site hospedado no Brasil e, para acelerar o acesso de um usuário no Japão podemos resolver isso com CDN, que irá realizar a cópia para um Edge location próximo do usuário no primeiro request e manter o cache por um tempo.
+
+Com o transfer acceleration, temos a mesma analogia porém com o S3, pois se temos dados em um bucket em sa-east-1 e queremos fazer um upload de uma localização próxima de eu-west-2. O que acontece na verdade é que o upload acontece para um edge location em EU e através do s3 transfer acceleration os dados são enviados para o bucket em sa-east-1 através da rede interna da amazon.
+
+**Como habilitar?**
+* Dentro de advance settings no bucket, é possível habilitar/desabilitar o serviço, portanto é algo individual por bucket. Ao habilitar, a URL da bucket é alterada.
+
+## Hospedando um website com S3
+
+**Em properties**:
+* Habilitar Static Website Hosting
+* "use this bucket to host a static website"
+* Apontar o index document e página de erro
+* Ao habilitar, s3 fornece uma url
+
+**IMPORTANTE**: Em um caso de uso onde ao hospedar um site não é do interesse que as imagens sejam acessadas diretamente, para que seu site seja acessado para isso, é possível remover o acesso público às imagens, servindo-as apenas a URLs assinadas e com data de expiração (signed URLs)
+
+## Snowball
 
 Serviço: Migration & Tranfer (_Não_ é um serviço de storage)
 Tranferência para applicance e então para o S3 sem utilizar internet
@@ -105,7 +124,7 @@ Tranferência para applicance e então para o S3 sem utilizar internet
 * Snowball Edge (100TB, 256b encryption)
 * Snowmobile (100PT, contêiner de 15m)	
 
-### StorageGateway
+## StorageGateway
 
 Storage Híbrido
 
@@ -121,7 +140,7 @@ Storage Híbrido
 - [AWS Storage Gateway Overview](https://www.youtube.com/watch?v=pNb7xOBJjHE)
 - [AWS Storage Gateway Cheat Sheet](https://tutorialsdojo.com/aws-storage-gateway/)
 
-### AWS DataSync
+## AWS DataSync
 
 - https://aws.amazon.com/datasync/faqs/
 - https://tutorialsdojo.com/aws-datasync/
@@ -129,32 +148,13 @@ Storage Híbrido
 - [AWS DataSync Cheat Sheet](https://tutorialsdojo.com/aws-datasync/)
 - [AWS Storage Gateway vs DataSync](https://www.youtube.com/watch?v=tmfe1rO-AUs)
 	
-### S3 Transfer Acceleration
-
-Exemplo: temos um site hospedado no Brasil e, para acelerar o acesso de um usuário no Japão podemos resolver isso com CDN, que irá realizar a cópia para um Edge location próximo do usuário no primeiro request e manter o cache por um tempo.
-
-Com o transfer acceleration, temos a mesma analogia porém com o S3, pois se temos dados em um bucket em sa-east-1 e queremos fazer um upload de uma localização próxima de eu-west-2. O que acontece na verdade é que o upload acontece para um edge location em EU e através do s3 transfer acceleration os dados são enviados para o bucket em sa-east-1 através da rede interna da amazon.
-
-**Como habilitar?**
-* Dentro de advance settings no bucket, é possível habilitar/desabilitar o serviço, portanto é algo individual por bucket. Ao habilitar, a URL da bucket é alterada.
-
-### RRS
+## RRS
 
 Reduced Replication Storage, 0,01% de perda em comparação ao S3 standard, por ter menos replicação, torna-se um serviço mais barato.
 
 Garante 99,99% em durabilidade e disponibilidade. **Não** é recomendado para dados críticos e não substituíveis. Útil por exemplo para thumbnails.
 
-### Hospedando um website com S3
-
-**Em properties**:
-* Habilitar Static Website Hosting
-* "use this bucket to host a static website"
-* Apontar o index document e página de erro
-* Ao habilitar, s3 fornece uma url
-
-**IMPORTANTE**: Em um caso de uso onde ao hospedar um site não é do interesse que as imagens sejam acessadas diretamente, para que seu site seja acessado para isso, é possível remover o acesso público às imagens, servindo-as apenas a URLs assinadas e com data de expiração (signed URLs)
-
-### Cloudfront
+## Cloudfront
 
 O [Cloudfront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) é um serviço para acelerar a distribuição de conteúdo estático (.html, .css, etc.) e dinâmico. O conteúdo é entregue por uma rede global de datacenters, os Edge Locations.
 
@@ -177,7 +177,7 @@ Caso você use um S3 como *origin server* pode optar por deixar os objetos públ
 - [Amazon CloudFront cheat sheet](https://tutorialsdojo.com/amazon-cloudfront/)
 - [S3 Pre-signed URLs vs CloudFront Signed URLs vs Origin Access Identity (OAI)](https://tutorialsdojo.com/s3-pre-signed-urls-vs-cloudfront-signed-urls-vs-origin-access-identity-oai/)
 
-#### Lambda@Edge
+### Lambda@Edge
 
 - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html
 - https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html
@@ -226,16 +226,16 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
   - Caso tenha atingido algum limite, é possível abrir um case para aumentá-lo no caso de Spot ou On-Demand
 ![Limits Calculator](images/vCPU-limit.png)
 
-### Billing @ EC2
+## Billing @ EC2
 
 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
 
-### Placement Groups
+## Placement Groups
 
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
 - https://aws.amazon.com/hpc/
 
-### EBS
+## EBS
 
 O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD. São projetados para fornecer 99.999% de disponibilidar (5 noves). 
 
@@ -252,7 +252,7 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 - [EBS Cheat Sheet](https://tutorialsdojo.com/amazon-ebs/)
 - [EBS Overview](https://youtu.be/ljYH5lHQdxo)
 
-### Snapshots
+## Snapshots
 
 Serve como sistema de backup tanto para volumes como para instâncias
 
@@ -268,8 +268,7 @@ Para restaurar um snapshot, temos duas opções:
 
 A diferença aqui é que no caso do EBS Volume, não necessariamente a máquina ira subir com as mesmas configurações, o volume pode ser simplesmente um disco a mais, enquanto no segundo caso a instância irá subir utilizando aquele snapshot como imagem base.
 
-
-### Data Lifecycle Manager
+## Data Lifecycle Manager
 
 O [Data Lifecycle Manager (DLM)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) suporta:
 
@@ -292,19 +291,19 @@ O DLM inclui algumas tags automaticamente, para diferenciar snapshots e AMIs cri
 |Políticas de Lifecycle por Região|100
 |Tags por recurso|45
 
-### User Data
+## User Data
 
 Como [user-data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) é possível fornecer shell-scripts ou então diretivas de cloud-init que serão executadas durante o *launch* da instância. Durante a criação, em advanced details é possível fornecer esse user-data como texto, arquivo ou já em base64. Para alterar o que você configurou em user-data em uma instância já existente, é necessário que a mesma esteja em estado *stopped* e então em *Actions, Instance settings, Edit user data*.
 
-### Instance Hibernation
+## Instance Hibernation
 
 Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html) desde que isso seja configurado durante a criação. Existem também alguns [pré-requisitos](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html), como por exemplo ter o volume root com encriptação habilitada, não possuir mais de 150gb de RAM e somente suportar instâncias on-demand.
 
-### Security Groups
+## Security Groups
 
 [Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) são equivalentes a firewalls virtuais de uma instância, permitindo que criemos regras de entrada (inbound) e saída (outbound). SGs são stateful, portanto mesmo que você não tenha uma regra de entrada mas o request foi originado da instância, a mesma irá receber a resposta com sucesso. Caso você não forneça um SG durante a criação da instância, a mesma será adicionada ao SG *default*. É possível associar mais de um SG para uma instância e todos serão avaliados para decidir se algum tipo de tráfego deve ser permitido. Vale ressaltar que SGs chegam até a camada 4, portanto não há proteção de ataque na camada de aplicação (camada 7), para isso usamos o WAF.
 
-### EFS
+## EFS
 
 O [Elastic File System](https://aws.amazon.com/efs/?nc1=h_ls) permite que você tenha mais de uma instância anexada a um mesmo volume, algo que não é possível com o EBS. Ele é provisionado na ideia set-and-forget, sem tamanho mínimo e com pagamento apenas para o armazenamento utilizado. Recomendado para armazenamento com acesso infrequente, se adaptando ao *throughput* dinamicamente. Dentro de uma instância amazon linux, basta instalar o pacote `amazon-efs-utils` e realizar um mount (por IP ou DNS) após isso. É importante que o SG do EFS tenha uma regra para permitir acesso (inbound) via o SG das instâncias que irão anexá-lo.
 
@@ -314,7 +313,6 @@ O [Elastic File System](https://aws.amazon.com/efs/?nc1=h_ls) permite que você 
 - https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-storage-optimization/aws-storage-services.html
 - https://aws.amazon.com/blogs/startups/picking-the-right-data-store-for-your-workload/
 - [Amazon FSx Cheat Sheet](https://tutorialsdojo.com/amazon-fsx/)
-
 
 #### FSx for Windows File Systems
 
@@ -434,7 +432,12 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 - [Amazon Route 53 Overview](https://www.youtube.com/watch?v=Su308t19ubY)
 - [Amazon Route 53 Cheat Sheet](https://tutorialsdojo.com/amazon-route-53/)
 
----
+## Direct Connect & Transit Gateways
+
+- https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-transit-gateways.html
+- https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-aws-transit-gateway.html
+- https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-sub-1-gbps-hosted-connections-with-aws-transit-gateway/
+
 ## VPC
 
 - http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html
@@ -454,12 +457,12 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 ![VPC Endpoint](images/amazon-s3-vpc-endpoint.png "VPC Endpoint")
 
 
-### NAT
+## NAT
 
 - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
 
-### LoadBalancing
+## LoadBalancing
 
 - https://aws.amazon.com/premiumsupport/knowledge-center/elb-attach-elastic-ip-to-public-nlb/
 - https://aws.amazon.com/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/
@@ -475,19 +478,19 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
 - [AWS Identity Services Overview](https://www.youtube.com/watch?v=AIdUw0i8rr0)
 - [AWS IAM Cheat Sheet](https://tutorialsdojo.com/aws-identity-and-access-management-iam/)
-### AWS Config
+## AWS Config
 
 - https://aws.amazon.com/config/
 - https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html
 - [AWS Config Cheat Sheet](https://tutorialsdojo.com/aws-config/)
 
-### SQS e SWF
+## SQS e SWF
 
 - https://aws.amazon.com/sqs/
 - http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-welcome.html
 - https://aws.amazon.com/sqs/faqs/
 
-### SNS
+## SNS
 
 References:
 
@@ -498,7 +501,6 @@ References:
 - [Amazon SQS Cheat Sheet](https://tutorialsdojo.com/amazon-sqs/)
 - [Amazon Simple Workflow (SWF) vs AWS Step Functions vs Amazon SQS](https://tutorialsdojo.com/amazon-simple-workflow-swf-vs-aws-step-functions-vs-amazon-sqs/)
 
----
 ## Serverless Lambda
 
 - https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
@@ -508,7 +510,6 @@ References:
 - [AWS Lambda Cheat Sheets](https://tutorialsdojo.com/aws-lambda/)
 - [AWS Lambda Overview - Serverless Computing in AWS](https://www.youtube.com/watch?v=bPVX1zHwAnY)
 
----
 ## Cloudformation
 
 O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um serviço de IAC. Permite a criação de infraestrutura através de um template code em formato YAML ou JSON.
@@ -528,3 +529,11 @@ O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um servi�
 ## API Gateway
 
 - https://aws.amazon.com/api-gateway/faqs/
+
+## AWS Global Accelerator
+
+![Global Accelerator](images/aws-global-accelerator.png)
+
+- https://aws.amazon.com/global-accelerator/
+- https://aws.amazon.com/global-accelerator/faqs/
+- [AWS Global Accelerator Cheat Sheet](https://tutorialsdojo.com/aws-global-accelerator/)
