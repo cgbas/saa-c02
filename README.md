@@ -57,6 +57,7 @@
   - [AWS Config](#aws-config)
   - [SQS e SWF](#sqs-e-swf)
   - [SNS](#sns)
+  - [Step Functions](#step-functions)
   - [Serverless Lambda](#serverless-lambda)
   - [Cloudformation](#cloudformation)
   - [Cloudwatch](#cloudwatch)
@@ -233,6 +234,8 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 - [vCPU Limits Calculator (Console AWS)](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#LimitsCalculator:)
   - Caso tenha atingido algum limite, é possível abrir um case para aumentá-lo no caso de Spot ou On-Demand
 ![Limits Calculator](images/vCPU-limit.png)
+- [Instance Storage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+- [Raid Config](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html)
 
 ## Billing @ EC2
 
@@ -520,6 +523,12 @@ References:
 - [Amazon SQS Cheat Sheet](https://tutorialsdojo.com/amazon-sqs/)
 - [Amazon Simple Workflow (SWF) vs AWS Step Functions vs Amazon SQS](https://tutorialsdojo.com/amazon-simple-workflow-swf-vs-aws-step-functions-vs-amazon-sqs/)
 
+
+## Step Functions
+
+- https://aws.amazon.com/step-functions/features/
+- [AWS Step Functions Cheat Sheet](https://tutorialsdojo.com/aws-step-functions/)
+
 ## Serverless Lambda
 
 - https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
@@ -536,14 +545,26 @@ O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) é um servi�
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html#deployment-walkthrough-cfn-signal
 - https://aws.amazon.com/blogs/devops/use-a-creationpolicy-to-wait-for-on-instance-configurations/
-- [Amazon CloudWatch Overview](https://www.youtube.com/watch?v=q0DmxfyGkeU)
 - [AWS CloudFormation Cheat Sheet](https://tutorialsdojo.com/aws-cloudformation/)
 - [AWS CloudFormation - Templates, Stacks, Change Sets](https://www.youtube.com/watch?v=9Xpuprxg7aY)
 
 ## Cloudwatch
 
+![CloudWatch Logs](images/cloudwatch-logs.png)
+
 - https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-tutorial-ECS.html
 - https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html
+References:
+- [Amazon CloudWatch Overview](https://www.youtube.com/watch?v=q0DmxfyGkeU)
+- [CloudWatch logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
+- https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-ssm-agent.html
+- https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html
+- [Amazon CloudWatch Cheat Sheet](https://tutorialsdojo.com/amazon-cloudwatch/)
+- [CloudWatch Agent vs SSM Agent vs Custom Daemon Scripts](https://tutorialsdojo.com/cloudwatch-agent-vs-ssm-agent-vs-custom-daemon-scripts/)
+- [RDS Metrics on CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/rds-metricscollected.html)
+- [RDS USER Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.CloudWatchLogs)
+  - CPU Utilization, Database Connections, Freeable Memory are regular metrics
+  - Enhanced Monitoring, through an agent in the instance, provides a JSON output from CloudWatch Logs in a monitoring system of your choice
 
 ## API Gateway
 
