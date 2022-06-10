@@ -22,6 +22,7 @@
   - [Cloudfront](#cloudfront)
     - [Lambda@Edge](#lambdaedge)
   - [EC2](#ec2)
+  - [AutoScaling](#autoscaling)
   - [ECS](#ecs)
   - [Billing @ EC2](#billing--ec2)
   - [Placement Groups](#placement-groups)
@@ -252,7 +253,10 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 - [Instance Storage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
 - [Raid Config](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html)
 
+## AutoScaling
 
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
+- https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html
 ## ECS
 
 - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
