@@ -12,6 +12,7 @@
 - [Notas de estudo para SAA-C02](#notas-de-estudo-para-saa-c02)
   - [Índice](#índice)
   - [S3](#s3)
+  - [Cloudtrail](#cloudtrail)
   - [S3 Transfer Acceleration](#s3-transfer-acceleration)
   - [Hospedando um website com S3](#hospedando-um-website-com-s3)
   - [Snowball](#snowball)
@@ -90,9 +91,16 @@ Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e 
 
 
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html
-- [Cloudtrail vs Server Logs](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudtrail-logging.html#cloudtrail-logging-vs-server-logs)
+
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html
+
+## Cloudtrail
+
+![Cloud Trail](images/cloudtrail_flow.png)
+- [Cloudtrail vs Server Logs](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudtrail-logging.html#cloudtrail-logging-vs-server-logs)
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html
+https://aws.amazon.com/blogs/aws/category/cloud-trail/
 ## S3 Transfer Acceleration
 
 Exemplo: temos um site hospedado no Brasil e, para acelerar o acesso de um usuário no Japão podemos resolver isso com CDN, que irá realizar a cópia para um Edge location próximo do usuário no primeiro request e manter o cache por um tempo.
