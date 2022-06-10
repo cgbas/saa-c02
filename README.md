@@ -94,6 +94,12 @@ Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e 
 
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html
+- [Retrieving from S3 Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html)
+  - Provisioned capacity lasts for a month
+  - Each unity provides at least 3 retrievals that can be performed every 5min with up to 150MB/s throughput
+- https://aws.amazon.com/s3/storage-classes/
 
 ## Cloudtrail
 
@@ -433,13 +439,14 @@ Rápido e escalável, utiliza ML, execução paralela de queries massivas e **ar
 
 - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html
 - [Amazon RDS Cheat Sheet](https://tutorialsdojo.com/amazon-relational-database-service-amazon-rds/)
-
----
 ## Kinesis & Streams
 
 - https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-ddb.html
 - https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html
-- 
+- http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html
+- [Amazon Kinesis Cheat Sheet](https://tutorialsdojo.com/amazon-kinesis/)
+
+  
 ![Kinesis Data Firehose](images/kinesis-firehose.png)
 
 O Kinesis Firehose é um serviço completamente gerenciado que escala com o throughput de dados e não necessita de administração. Os dados são colocados em batches, comprimidos e encriptados antes do carregamento, minimizando uso de storage e aumentando segurança. É a maneira mais simples de capturar, transformar e carregar dados de streaming no S3, RedShift, Elasticsearch e Splunk.
