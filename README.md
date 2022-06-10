@@ -52,6 +52,8 @@
   - [NAT](#nat)
   - [LoadBalancing](#loadbalancing)
   - [IAM](#iam)
+  - [Cognito](#cognito)
+  - [Security Services](#security-services)
   - [AWS Config](#aws-config)
   - [SQS e SWF](#sqs-e-swf)
   - [SNS](#sns)
@@ -86,7 +88,9 @@ Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e 
 
 
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html
-
+- [Cloudtrail vs Server Logs](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudtrail-logging.html#cloudtrail-logging-vs-server-logs)
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html
 ## S3 Transfer Acceleration
 
 Exemplo: temos um site hospedado no Brasil e, para acelerar o acesso de um usuário no Japão podemos resolver isso com CDN, que irá realizar a cópia para um Edge location próximo do usuário no primeiro request e manter o cache por um tempo.
@@ -142,9 +146,13 @@ Storage Híbrido
 
 ## AWS DataSync
 
+
+![Data Sync](images/aws-datasync.png)
+
 - https://aws.amazon.com/datasync/faqs/
 - https://tutorialsdojo.com/aws-datasync/
 - https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html
+- https://docs.aws.amazon.com/general/latest/gr/dc.html
 - [AWS DataSync Cheat Sheet](https://tutorialsdojo.com/aws-datasync/)
 - [AWS Storage Gateway vs DataSync](https://www.youtube.com/watch?v=tmfe1rO-AUs)
 	
@@ -476,8 +484,19 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 ## IAM
 
 - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html
+- https://aws.amazon.com/blogs/aws/aws-identity-and-access-management-now-with-identity-federation/
 - [AWS Identity Services Overview](https://www.youtube.com/watch?v=AIdUw0i8rr0)
 - [AWS IAM Cheat Sheet](https://tutorialsdojo.com/aws-identity-and-access-management-iam/)
+
+## Cognito
+
+- https://docs.aws.amazon.com/cognito/latest/developerguide/managing-security.html
+
+## Security Services
+
+- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.html#cnames-and-https-uploading-certificates
+- [AWS Security Services Overview - Secrets Manager, ACM, Macie](https://www.youtube.com/watch?v=ogVamzF2Dzk)
 ## AWS Config
 
 - https://aws.amazon.com/config/
