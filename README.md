@@ -21,6 +21,7 @@
   - [Cloudfront](#cloudfront)
     - [Lambda@Edge](#lambdaedge)
   - [EC2](#ec2)
+  - [ECS](#ecs)
   - [Billing @ EC2](#billing--ec2)
   - [Placement Groups](#placement-groups)
   - [EBS](#ebs)
@@ -236,6 +237,14 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 ![Limits Calculator](images/vCPU-limit.png)
 - [Instance Storage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
 - [Raid Config](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html)
+
+
+## ECS
+
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
+- https://aws.amazon.com/ec2/spot/containers-for-less/get-started/
+- [Amazon ECS Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-container-service-amazon-ecs/)
+- [AWS Container Services Overview](https://www.youtube.com/watch?v=5QBgDX7O7pw)
 
 ## Billing @ EC2
 
