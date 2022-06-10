@@ -440,6 +440,8 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 ### Route53 and S3 Website Hosting
 
 - [Roteando do Route53 para um Bucket S3](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/RoutingToS3Bucket.html)
+- [Zone Apex](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/setting-up-route53-zoneapex-elb.html)
+- https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
 - [Amazon Route 53 Overview](https://www.youtube.com/watch?v=Su308t19ubY)
 - [Amazon Route 53 Cheat Sheet](https://tutorialsdojo.com/amazon-route-53/)
 
