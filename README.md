@@ -23,11 +23,11 @@
   - [EC2](#ec2)
     - [Placement Groups](#placement-groups)
     - [EC2 Enhanced Networking](#ec2-enhanced-networking)
-    - [AutoScaling](#autoscaling)
     - [User Data](#user-data)
     - [Instance Hibernation](#instance-hibernation)
     - [Security Groups](#security-groups)
   - [ECS](#ecs)
+  - [AutoScaling](#autoscaling)
   - [Elastic Beanstalk](#elastic-beanstalk)
   - [EBS](#ebs)
     - [Snapshots](#snapshots)
@@ -248,10 +248,11 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
     - The EIP is associated with an Amazon EC2 Instance
     - The instance is running
     - The instance has only **one** EIP attached to it
-  - [Pricing (On-Demand)](https://aws.amazon.com/ec2/pricing/on-demand/)
-  - [Analizando custos de transferência com o Cost Explorer](https://aws.amazon.com/blogs/mt/using-aws-cost-explorer-to-analyze-data-transfer-costs/)
-  - [Instance Lifecycle](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
-
+- [Pricing (On-Demand)](https://aws.amazon.com/ec2/pricing/on-demand/)
+- [Analizando custos de transferência com o Cost Explorer](https://aws.amazon.com/blogs/mt/using-aws-cost-explorer-to-analyze-data-transfer-costs/)
+- [Instance Lifecycle](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html
+  
 ### Placement Groups
 
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
@@ -263,17 +264,6 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html
-
-### AutoScaling
-
-- https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
-- [Scaling Policies - Step Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
-  - Scaling Policies:
-    - Target Tracking
-    - Simple
-    - Step Scaling
-    - Scheduled
-- [Fault Tolerant Applications (PDF)](https://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf)
 
 ### User Data
 
@@ -293,6 +283,18 @@ Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/Use
 - [Amazon ECS Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-container-service-amazon-ecs/)
 - [AWS Container Services Overview](https://www.youtube.com/watch?v=5QBgDX7O7pw)
 - [ECS with FSx for Windows File Server](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-wfsx-volumes.html)
+
+## AutoScaling
+
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
+- [Scaling Policies - Step Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
+  - Scaling Policies:
+    - Target Tracking
+    - Simple
+    - Step Scaling
+    - Scheduled
+- [Fault Tolerant Applications (PDF)](https://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf)
+- [ECS Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-configure-auto-scaling.html)
 
 ## Elastic Beanstalk
 
