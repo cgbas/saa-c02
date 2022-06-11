@@ -9,6 +9,7 @@
   - **Lembre de tentar em aba anônima para não comprar pelo preço cheio**
   - A maioria dos links de referência aqui é com base nas questões que eu revisei dos practice exams e os cheat sheets são todos do Tutorials Dojo, do Jon Bonso
 
+---
 - [SAA-C02 - Notas de Estudo](#saa-c02---notas-de-estudo)
   - [S3](#s3)
   - [Cloudtrail](#cloudtrail)
