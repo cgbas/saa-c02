@@ -38,6 +38,7 @@
   - [AWS Marketplace](#aws-marketplace)
   - [WAF](#waf)
   - [Data](#data)
+    - [Amazon RDS](#amazon-rds)
     - [Aurora](#aurora)
     - [Aurora Serverless](#aurora-serverless)
     - [Aurora Global Database](#aurora-global-database)
@@ -149,6 +150,7 @@ Storage Híbrido
 - https://aws.amazon.com/storagegateway/faqs/
 - https://aws.amazon.com/storagegateway/
 - https://docs.aws.amazon.com/storagegateway/latest/userguide/CreatingAnSMBFileShare.html
+- [SQL Server Backups in S3 via File Gateway](https://aws.amazon.com/blogs/storage/easily-store-your-sql-server-backups-in-amazon-s3-using-file-gateway/)
 - [AWS Storage Gateway Overview](https://www.youtube.com/watch?v=pNb7xOBJjHE)
 - [AWS Storage Gateway Cheat Sheet](https://tutorialsdojo.com/aws-storage-gateway/)
 - [Storage Gateway Hardware Applicance](https://docs.aws.amazon.com/storagegateway/latest/userguide/hardware-appliance.html)
@@ -280,6 +282,7 @@ Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/Use
 
 - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
 - https://aws.amazon.com/ec2/spot/containers-for-less/get-started/
+- [Service Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html)
 - [Amazon ECS Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-container-service-amazon-ecs/)
 - [AWS Container Services Overview](https://www.youtube.com/watch?v=5QBgDX7O7pw)
 - [ECS with FSx for Windows File Server](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-wfsx-volumes.html)
@@ -386,6 +389,10 @@ O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfron
 
 ---
 ## Data
+
+### Amazon RDS
+
+- [Multi AZ](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html)
 
 ### Aurora
 ### Aurora Serverless
