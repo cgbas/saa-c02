@@ -22,6 +22,7 @@
   - [Cloudfront](#cloudfront)
     - [Lambda@Edge](#lambdaedge)
   - [EC2](#ec2)
+    - [EC2 Enhanced Networking](#ec2-enhanced-networking)
   - [AutoScaling](#autoscaling)
   - [ECS](#ecs)
   - [Billing @ EC2](#billing--ec2)
@@ -160,6 +161,8 @@ Storage Híbrido
 - https://docs.aws.amazon.com/storagegateway/latest/userguide/CreatingAnSMBFileShare.html
 - [AWS Storage Gateway Overview](https://www.youtube.com/watch?v=pNb7xOBJjHE)
 - [AWS Storage Gateway Cheat Sheet](https://tutorialsdojo.com/aws-storage-gateway/)
+- [Storage Gateway Hardware Applicance](https://docs.aws.amazon.com/storagegateway/latest/userguide/hardware-appliance.html)
+- https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html
 
 ## AWS DataSync
 
@@ -252,6 +255,11 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 ![Limits Calculator](images/vCPU-limit.png)
 - [Instance Storage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
 - [Raid Config](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html)
+
+### EC2 Enhanced Networking
+
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html
 
 ## AutoScaling
 
