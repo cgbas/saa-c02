@@ -38,8 +38,7 @@
       - [FSx for Windows File Systems](#fsx-for-windows-file-systems)
   - [AWS Marketplace](#aws-marketplace)
   - [WAF](#waf)
-  - [Bases de Dado AWS](#bases-de-dado-aws)
-    - [Relational](#relational)
+  - [Data](#data)
     - [Aurora Serverless](#aurora-serverless)
     - [Aurora Global Database](#aurora-global-database)
     - [DynamoDB](#dynamodb)
@@ -75,7 +74,7 @@ Ou Simple storage Service, serviço de armazenamento com alta disponibilidade e 
 * Frequente:
   * Standard
     * Mais comum, para objetos com acesso frequente
-    * 99.999999999% (nove dígitos após a vírgula) de durabilidade
+    * 99.999999999% (11 noves) de durabilidade
     * 99.999999999% de disponibilidade
 * Infrequente:
   * Standard-IA
@@ -132,15 +131,6 @@ Com o transfer acceleration, temos a mesma analogia porém com o S3, pois se tem
 
 Serviço: Migration & Tranfer (_Não_ é um serviço de storage)
 Tranferência para applicance e então para o S3 sem utilizar internet
-
-**Utilização**:
-* Create Job
-* Plan Jon (import into S3, export from S3, local compute & storage only)
-* Configurações do Job (bucket, etc)
-* Shipping
-* Configurações de segurança
-* Confirm Order
-
 
 **Opções**: 
 * Snowball Edge (100TB, 256b encryption)
@@ -373,41 +363,7 @@ O [AWS Marketplace](https://aws.amazon.com/mp/marketplace-service/overview/) é 
 O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfront, ALB (EC2), APIGateway ou APPSync (GraphQL APIS). Trata-se de um firewall de Camada 7 (aplicação), para proteção contra DDoS e conteúdo web malicioso.
 
 ---
-## Bases de Dado AWS
-
-
-Backups:
-+ Automated
-  + Amazenado no S3
-+ DB Snapshot
-  + Manual
-  + Pode rodar automaticamente ao deletar uma instância caso habilitado na criação
-
-### Relational
-
-+ Multi-AZ
-  + permite um cenário de DR (disaster recovery)
-  + DNS único
-  + failover automático
-+ Read-Replica
-  + cópia idêntica apenas para leitura (maior performante em instruções de read)
-  + Mais de um DNS
-  + failover manual
-  + Backup **deve** estar habilitado
-
-Opções:
-+ AWS
-  + Aurora
-    + até 64TB 
-  + MySQL
-    + 20GB (min) até 32TB
-  + MariaDB
-    + até 32TB e 5 Replicas
-+ Non-AWS
-  + Oracle
-  + PostgreSQL
-  + MS SQLServer
-
+## Data
 
 ### Aurora Serverless
 
