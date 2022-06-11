@@ -40,12 +40,13 @@
   - [AWS Marketplace](#aws-marketplace)
   - [WAF](#waf)
   - [Data](#data)
+    - [Aurora](#aurora)
     - [Aurora Serverless](#aurora-serverless)
     - [Aurora Global Database](#aurora-global-database)
     - [DynamoDB](#dynamodb)
     - [Elasticache](#elasticache)
     - [Redshift](#redshift)
-    - [Amazon Aurora](#amazon-aurora)
+    - [Microsoft SQL Server for RDS](#microsoft-sql-server-for-rds)
     - [IAM DB](#iam-db)
   - [Kinesis & Streams](#kinesis--streams)
   - [Route53](#route53)
@@ -255,7 +256,13 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 ## AutoScaling
 
 - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
-- https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html
+- [Scaling Policies - Step Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
+  - Scaling Policies:
+    - Target Tracking
+    - Simple
+    - Step Scaling
+    - Scheduled
+- [Fault Tolerant Applications (PDF)](https://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf)
 ## ECS
 
 - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
@@ -373,6 +380,7 @@ O [WAF](https://aws.amazon.com/waf/?nc1=h_ls) pode ser utilizado em um Cloudfron
 ---
 ## Data
 
+### Aurora
 ### Aurora Serverless
 
 - https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html
@@ -408,7 +416,10 @@ Rápido e escalável, utiliza ML, execução paralela de queries massivas e **ar
 - [Amazon Redshift Cheat Sheet](https://tutorialsdojo.com/amazon-redshift/)
 - [Kinesis vs EMR vs Athena vs Redshift](https://youtu.be/wEOm6aiN4ww)
   - Estudo de caso avaliando as ferramentas de analytics mais recomendadas
-### Amazon Aurora
+### Microsoft SQL Server for RDS
+
+- [SSL With a MS SQL Server DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html)
+- [Transparent Data Encryption](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.TDE.html)
 
 ### IAM DB
 
