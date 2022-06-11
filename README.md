@@ -20,7 +20,6 @@
   - [AWS DataSync](#aws-datasync)
   - [RRS](#rrs)
   - [Cloudfront](#cloudfront)
-    - [Lambda@Edge](#lambdaedge)
   - [EC2](#ec2)
     - [EC2 Enhanced Networking](#ec2-enhanced-networking)
   - [AutoScaling](#autoscaling)
@@ -197,13 +196,9 @@ Caso você use um S3 como *origin server* pode optar por deixar os objetos públ
 - [Amazon CloudFront cheat sheet](https://tutorialsdojo.com/amazon-cloudfront/)
 - [S3 Pre-signed URLs vs CloudFront Signed URLs vs Origin Access Identity (OAI)](https://tutorialsdojo.com/s3-pre-signed-urls-vs-cloudfront-signed-urls-vs-origin-access-identity-oai/)
 - ![Origin Failover with Cache Miss](images/cloudfront-origin-failover-cache-miss.png)
-### Lambda@Edge
+- [Origin Failover (HA)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html)
+- [Lambda Edge](https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html)
 
-- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html
-- https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html
-- [Amazon CloudFront Cheat Sheets](https://tutorialsdojo.com/amazon-cloudfront/)
-  
----
 ## EC2
 
 O Elastic Compute Cloud, ou [EC2](https://aws.amazon.com/ec2/?nc1=h_ls), é um serviço que provê *instâncias* computacionais com vários [tipos](https://aws.amazon.com/ec2/instance-types/) de otimização:
@@ -237,6 +232,8 @@ E também temos a opção de ativar um **Saving Plan**, onde um desconto é forn
 
 Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://calculator.aws/#/). Para visualizar todas suas instâncias EC2, utilize o [Global View](https://us-east-1.console.aws.amazon.com/ec2globalview/home?region=us-east-1#)
 
+- [EC2 - Conceitos](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
+- [Amazon EC2 Overview - Video](https://www.youtube.com/watch?v=7VsGIHT_jQE)
 - [Limites de Serviço](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ec2)
 - [Quantas instâncias EC2 posso ter por região?](https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2)
   - On-Demand: vCPU-based limit
@@ -252,6 +249,8 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
     - The EIP is associated with an Amazon EC2 Instance
     - The instance is running
     - The instance has only **one** EIP attached to it
+  - [Pricing (On-Demand)](https://aws.amazon.com/ec2/pricing/on-demand/)
+  - [Analizando custos de transferência com o Cost Explorer](https://aws.amazon.com/blogs/mt/using-aws-cost-explorer-to-analyze-data-transfer-costs/)
 
 ### EC2 Enhanced Networking
 
