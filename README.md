@@ -512,8 +512,6 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 
 ## SNS
 
-References:
-
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/ways-to-add-notification-config-to-bucket.html
 - https://aws.amazon.com/blogs/aws/s3-event-notification/
