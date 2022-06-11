@@ -1,4 +1,5 @@
-# Notas de estudo para SAA-C02
+Notas de estudo para SAA-C02
+---
 
 **ATENÇÃO**: Esse não é um material que cobre 100% da prova, estou anotando somente tópicos que estou revisando antes do exame e pretendo acertar o índice e a ordem dos tópicos conforme avançar nos estudos. 
 
@@ -8,7 +9,7 @@
 - Recomendo fortemente os testes do Jon Bonso, comprei pelo [Udemy](https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c03/)
   - **Lembre de tentar em aba anônima para não comprar pelo preço cheio**
   - A maioria dos links de referência aqui é com base nas questões que eu revisei dos practice exams e os cheat sheets são todos do Tutorials Dojo, do Jon Bonso
-## Índice
+- 
 - [Notas de estudo para SAA-C02](#notas-de-estudo-para-saa-c02)
   - [Índice](#índice)
   - [S3](#s3)
