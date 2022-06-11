@@ -196,7 +196,7 @@ Caso você use um S3 como *origin server* pode optar por deixar os objetos públ
 - https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
 - [Amazon CloudFront cheat sheet](https://tutorialsdojo.com/amazon-cloudfront/)
 - [S3 Pre-signed URLs vs CloudFront Signed URLs vs Origin Access Identity (OAI)](https://tutorialsdojo.com/s3-pre-signed-urls-vs-cloudfront-signed-urls-vs-origin-access-identity-oai/)
-
+- ![Origin Failover with Cache Miss](images/cloudfront-origin-failover-cache-miss.png)
 ### Lambda@Edge
 
 - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html
