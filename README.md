@@ -292,9 +292,8 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 
 ## Snapshots
 
-Serve como sistema de backup tanto para volumes como para instâncias
-
-**EC2** => Elastic Block Storage => Snapshots
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
 
 Resource types:
 + Instance
@@ -481,6 +480,8 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 - https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-transit-gateways.html
 - https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-aws-transit-gateway.html
 - https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-sub-1-gbps-hosted-connections-with-aws-transit-gateway/
+- [Transit Gateway and Multiple VPN Tunnels with ECMP routing](https://aws.amazon.com/premiumsupport/knowledge-center/transit-gateway-ecmp-multiple-tunnels/)
+- [Scale VPN throughput with Transit Gateways](https://aws.amazon.com/blogs/networking-and-content-delivery/scaling-vpn-throughput-using-aws-transit-gateway/)
 
 ## VPC
 
