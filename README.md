@@ -21,18 +21,17 @@
   - [RRS](#rrs)
   - [Cloudfront](#cloudfront)
   - [EC2](#ec2)
+    - [Placement Groups](#placement-groups)
     - [EC2 Enhanced Networking](#ec2-enhanced-networking)
-  - [AutoScaling](#autoscaling)
+    - [AutoScaling](#autoscaling)
+    - [User Data](#user-data)
+    - [Instance Hibernation](#instance-hibernation)
+    - [Security Groups](#security-groups)
   - [ECS](#ecs)
   - [Elastic Beanstalk](#elastic-beanstalk)
-  - [Billing @ EC2](#billing--ec2)
-  - [Placement Groups](#placement-groups)
   - [EBS](#ebs)
-  - [Snapshots](#snapshots)
-  - [Data Lifecycle Manager](#data-lifecycle-manager)
-  - [User Data](#user-data)
-  - [Instance Hibernation](#instance-hibernation)
-  - [Security Groups](#security-groups)
+    - [Snapshots](#snapshots)
+    - [Data Lifecycle Manager](#data-lifecycle-manager)
   - [EFS](#efs)
     - [File Storages](#file-storages)
       - [FSx for Windows File Systems](#fsx-for-windows-file-systems)
@@ -251,13 +250,21 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
     - The instance has only **one** EIP attached to it
   - [Pricing (On-Demand)](https://aws.amazon.com/ec2/pricing/on-demand/)
   - [Analizando custos de transferência com o Cost Explorer](https://aws.amazon.com/blogs/mt/using-aws-cost-explorer-to-analyze-data-transfer-costs/)
+  - [Instance Lifecycle](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
+
+### Placement Groups
+
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+- https://aws.amazon.com/hpc/
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-cluster
+- http://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/troubleshooting-launch.html#troubleshooting-launch-capacity
 
 ### EC2 Enhanced Networking
 
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html
 
-## AutoScaling
+### AutoScaling
 
 - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
 - [Scaling Policies - Step Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
@@ -267,6 +274,18 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
     - Step Scaling
     - Scheduled
 - [Fault Tolerant Applications (PDF)](https://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf)
+
+### User Data
+
+Como [user-data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) é possível fornecer shell-scripts ou então diretivas de cloud-init que serão executadas durante o *launch* da instância. Durante a criação, em advanced details é possível fornecer esse user-data como texto, arquivo ou já em base64. Para alterar o que você configurou em user-data em uma instância já existente, é necessário que a mesma esteja em estado *stopped* e então em *Actions, Instance settings, Edit user data*.
+
+### Instance Hibernation
+
+Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html) desde que isso seja configurado durante a criação. Existem também alguns [pré-requisitos](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html), como por exemplo ter o volume root com encriptação habilitada, não possuir mais de 150gb de RAM e somente suportar instâncias on-demand.
+
+### Security Groups
+
+[Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) são equivalentes a firewalls virtuais de uma instância, permitindo que criemos regras de entrada (inbound) e saída (outbound). SGs são stateful, portanto mesmo que você não tenha uma regra de entrada mas o request foi originado da instância, a mesma irá receber a resposta com sucesso. Caso você não forneça um SG durante a criação da instância, a mesma será adicionada ao SG *default*. É possível associar mais de um SG para uma instância e todos serão avaliados para decidir se algum tipo de tráfego deve ser permitido. Vale ressaltar que SGs chegam até a camada 4, portanto não há proteção de ataque na camada de aplicação (camada 7), para isso usamos o WAF.
 ## ECS
 
 - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
@@ -281,18 +300,6 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 - [AWS Elastic Beanstalk Cheat Sheet](https://tutorialsdojo.com/aws-elastic-beanstalk/)
 - [AWS Elastic Beanstalk Overview](https://www.youtube.com/watch?v=rx7e7Fej1Oo)
 - [Elastic Beanstalk vs CloudFormation vs OpsWorks vs CodeDeploy](https://tutorialsdojo.com/elastic-beanstalk-vs-cloudformation-vs-opsworks-vs-codedeploy/)
-
-
-
-
-## Billing @ EC2
-
-http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
-
-## Placement Groups
-
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
-- https://aws.amazon.com/hpc/
 
 ## EBS
 
@@ -311,7 +318,7 @@ O [Elastic Block Store](https://aws.amazon.com/pt/ebs/) provê discos HDD e SSD.
 - [EBS Cheat Sheet](https://tutorialsdojo.com/amazon-ebs/)
 - [EBS Overview](https://youtu.be/ljYH5lHQdxo)
 
-## Snapshots
+### Snapshots
 
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
@@ -326,7 +333,7 @@ Para restaurar um snapshot, temos duas opções:
 
 A diferença aqui é que no caso do EBS Volume, não necessariamente a máquina ira subir com as mesmas configurações, o volume pode ser simplesmente um disco a mais, enquanto no segundo caso a instância irá subir utilizando aquele snapshot como imagem base.
 
-## Data Lifecycle Manager
+### Data Lifecycle Manager
 
 O [Data Lifecycle Manager (DLM)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) suporta:
 
@@ -348,18 +355,6 @@ O DLM inclui algumas tags automaticamente, para diferenciar snapshots e AMIs cri
 | --- | --- |
 |Políticas de Lifecycle por Região|100
 |Tags por recurso|45
-
-## User Data
-
-Como [user-data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) é possível fornecer shell-scripts ou então diretivas de cloud-init que serão executadas durante o *launch* da instância. Durante a criação, em advanced details é possível fornecer esse user-data como texto, arquivo ou já em base64. Para alterar o que você configurou em user-data em uma instância já existente, é necessário que a mesma esteja em estado *stopped* e então em *Actions, Instance settings, Edit user data*.
-
-## Instance Hibernation
-
-Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html) desde que isso seja configurado durante a criação. Existem também alguns [pré-requisitos](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html), como por exemplo ter o volume root com encriptação habilitada, não possuir mais de 150gb de RAM e somente suportar instâncias on-demand.
-
-## Security Groups
-
-[Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) são equivalentes a firewalls virtuais de uma instância, permitindo que criemos regras de entrada (inbound) e saída (outbound). SGs são stateful, portanto mesmo que você não tenha uma regra de entrada mas o request foi originado da instância, a mesma irá receber a resposta com sucesso. Caso você não forneça um SG durante a criação da instância, a mesma será adicionada ao SG *default*. É possível associar mais de um SG para uma instância e todos serão avaliados para decidir se algum tipo de tráfego deve ser permitido. Vale ressaltar que SGs chegam até a camada 4, portanto não há proteção de ataque na camada de aplicação (camada 7), para isso usamos o WAF.
 
 ## EFS
 
@@ -521,6 +516,9 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 - https://aws.amazon.com/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/
 - https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
 - https://aws.amazon.com/elasticloadbalancing/
+- [Comparação de ELBs](https://aws.amazon.com/elasticloadbalancing/features/#compare)
+- [Tipos de ELB](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/load-balancer-types.html)
+- [Use Case - Modern App With Fargate, Lambda, DynamoDB & Python](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/module-two/)
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-increase-availability.html
 - [AWS Elastic Load Balancing Overview](https://youtu.be/UBl5dw59DO8)
 - [AWS Elastic Load Balancing (ELB) Cheat Sheet](https://tutorialsdojo.com/aws-elastic-load-balancing-elb/)
