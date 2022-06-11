@@ -247,6 +247,11 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 ![Limits Calculator](images/vCPU-limit.png)
 - [Instance Storage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
 - [Raid Config](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html)
+- [Elastic IP Charges](https://aws.amazon.com/premiumsupport/knowledge-center/elastic-ip-charges/)
+  - Won't incur any charges as long as you meet this criteria:
+    - The EIP is associated with an Amazon EC2 Instance
+    - The instance is running
+    - The instance has only **one** EIP attached to it
 
 ### EC2 Enhanced Networking
 
@@ -581,6 +586,7 @@ O [Cloudformation](https://aws.amazon.com/cloudformation/?nc1=h_ls) √© um servi√
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html#deployment-walkthrough-cfn-signal
 - https://aws.amazon.com/blogs/devops/use-a-creationpolicy-to-wait-for-on-instance-configurations/
+- [Template anatomy](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 - [AWS CloudFormation Cheat Sheet](https://tutorialsdojo.com/aws-cloudformation/)
 - [AWS CloudFormation - Templates, Stacks, Change Sets](https://www.youtube.com/watch?v=9Xpuprxg7aY)
 
