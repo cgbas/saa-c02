@@ -52,7 +52,7 @@
   - [Direct Connect & Transit Gateways](#direct-connect--transit-gateways)
   - [VPC](#vpc)
     - [Gateway e Interface Endpoints](#gateway-e-interface-endpoints)
-  - [NAT](#nat)
+  - [NAT Gateway](#nat-gateway)
   - [LoadBalancing](#loadbalancing)
   - [IAM](#iam)
   - [Cognito](#cognito)
@@ -466,10 +466,26 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 ![VPC Endpoint](images/amazon-s3-vpc-endpoint.png "VPC Endpoint")
 
 
-## NAT
+## NAT Gateway
 
 - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
-- https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
+- [VPC Nat Comparison](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html)
+  - NAT Instance requires you to implement HA by yourself
+    - Failover through scripts
+    - charged by instance type
+    - supports port forwarding
+    - can have either an EIP or public IP attached
+    - FIN packet to close connection if a timeout occurs
+  - NAT Gateway has HA with AZ redundancy
+    - EIP attached during creation
+    - charged by data sent
+    - RST packet that attempts to continue the connection if a timeout occurs
+  - Both are charged by # of instances/gateways and duration of usage as well
+
+- [VPC Nat Gateway](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html)
+  - IPV4
+- [Egress Only Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html)
+  - IPV6
 
 ## LoadBalancing
 
