@@ -269,6 +269,7 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 - https://aws.amazon.com/ec2/spot/containers-for-less/get-started/
 - [Amazon ECS Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-container-service-amazon-ecs/)
 - [AWS Container Services Overview](https://www.youtube.com/watch?v=5QBgDX7O7pw)
+- [ECS with FSx for Windows File Server](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-wfsx-volumes.html)
 
 ## Elastic Beanstalk
 
@@ -276,6 +277,9 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 - [AWS Elastic Beanstalk Cheat Sheet](https://tutorialsdojo.com/aws-elastic-beanstalk/)
 - [AWS Elastic Beanstalk Overview](https://www.youtube.com/watch?v=rx7e7Fej1Oo)
 - [Elastic Beanstalk vs CloudFormation vs OpsWorks vs CodeDeploy](https://tutorialsdojo.com/elastic-beanstalk-vs-cloudformation-vs-opsworks-vs-codedeploy/)
+
+
+
 
 ## Billing @ EC2
 
@@ -357,6 +361,8 @@ Instâncias podem ser [hibernadas](https://docs.aws.amazon.com/AWSEC2/latest/Use
 
 O [Elastic File System](https://aws.amazon.com/efs/?nc1=h_ls) permite que você tenha mais de uma instância anexada a um mesmo volume, algo que não é possível com o EBS. Ele é provisionado na ideia set-and-forget, sem tamanho mínimo e com pagamento apenas para o armazenamento utilizado. Recomendado para armazenamento com acesso infrequente, se adaptando ao *throughput* dinamicamente. Dentro de uma instância amazon linux, basta instalar o pacote `amazon-efs-utils` e realizar um mount (por IP ou DNS) após isso. É importante que o SG do EFS tenha uma regra para permitir acesso (inbound) via o SG das instâncias que irão anexá-lo.
 
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-efs-volumes.html
+- [EFS Performance - User Guide](https://docs.aws.amazon.com/efs/latest/ug/performance.html)
 ### File Storages
 
 - https://aws.amazon.com/fsx/
