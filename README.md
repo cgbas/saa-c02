@@ -25,6 +25,7 @@
     - [EC2 Enhanced Networking](#ec2-enhanced-networking)
   - [AutoScaling](#autoscaling)
   - [ECS](#ecs)
+  - [Elastic Beanstalk](#elastic-beanstalk)
   - [Billing @ EC2](#billing--ec2)
   - [Placement Groups](#placement-groups)
   - [EBS](#ebs)
@@ -52,7 +53,7 @@
   - [Direct Connect & Transit Gateways](#direct-connect--transit-gateways)
   - [VPC](#vpc)
     - [Gateway e Interface Endpoints](#gateway-e-interface-endpoints)
-  - [NAT Gateway](#nat-gateway)
+    - [NAT Gateway](#nat-gateway)
   - [LoadBalancing](#loadbalancing)
   - [IAM](#iam)
   - [Cognito](#cognito)
@@ -262,6 +263,13 @@ Para estimar os custos na AWS, podemos utilizar o [Pricing Calculator](https://c
 - [Amazon ECS Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-container-service-amazon-ecs/)
 - [AWS Container Services Overview](https://www.youtube.com/watch?v=5QBgDX7O7pw)
 
+## Elastic Beanstalk
+
+- https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html
+- [AWS Elastic Beanstalk Cheat Sheet](https://tutorialsdojo.com/aws-elastic-beanstalk/)
+- [AWS Elastic Beanstalk Overview](https://www.youtube.com/watch?v=rx7e7Fej1Oo)
+- [Elastic Beanstalk vs CloudFormation vs OpsWorks vs CodeDeploy](https://tutorialsdojo.com/elastic-beanstalk-vs-cloudformation-vs-opsworks-vs-codedeploy/)
+
 ## Billing @ EC2
 
 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
@@ -465,8 +473,7 @@ Permite ordenamento de registros e também o replay dos mesmos para várias apli
 
 ![VPC Endpoint](images/amazon-s3-vpc-endpoint.png "VPC Endpoint")
 
-
-## NAT Gateway
+### NAT Gateway
 
 - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 - [VPC Nat Comparison](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html)
